@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  pizzateig:
+    image: nginx:latest
+    container_name: play_polychrom_dev
+    ports:
+      - 8015
+    volumes:
+      - ./src:/usr/share/nginx/html
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.play_polychrom_dev.entrypoints=websecure"
+      - "traefik.http.routers.play_polychrom_dev.rule=Host(`play.polychrom.dev`)"
+      - "traefik.http.routers.play_polychrom_dev.tls.certresolver=myresolver"
+      - "traefik.port=8015"
+
+    networks:
+      - traefik_network
+networks:
+  traefik_network:
+    external: true
