@@ -76,8 +76,7 @@ ul {
 .intro {
   position: absolute;
   padding: 30px;
-  background-color: var(--color-black);
-  background-color: #ee82ee;
+  background-color: var(--color-blue);
   z-index: 1;
   right: 0;
   bottom: 0;
@@ -85,6 +84,7 @@ ul {
   width: 200px;
   margin: 0 auto;
   text-align: center;
+  color: var(--color-white);
 }
 
 .year {
@@ -118,15 +118,7 @@ article {
 .fas {
   cursor: pointer;
   font-size: 24px;
-  color: var(--color-blue);
-}
-
-.fas:hover {
-  color: var(--color-white) !important;
-}
-
-.fas:active {
-  color: var(--color-blue);
+  color: var(--color-white);
 }
 
 #info {
