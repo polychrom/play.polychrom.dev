@@ -5,8 +5,6 @@ services:
     image: play-app
     container_name: play-app
     build: .
-    environment:
-      NODE_ENV: production
     ports:
       - 8015
     #volumes:
