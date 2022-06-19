@@ -7,7 +7,7 @@ services:
     ports:
       - 8015
     volumes:
-      - ./src:/usr/share/nginx/html
+      - ./dist:/usr/share/nginx/html
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.play_polychrom_dev.entrypoints=websecure"
