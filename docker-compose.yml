@@ -1,13 +1,16 @@
 version: "3"
 
 services:
-  pizzateig:
-    image: nginx:latest
-    container_name: play_polychrom_dev
+  play-app:
+    image: play-app
+    container_name: play-app
+    build: .
+    environment:
+      NODE_ENV: production
     ports:
       - 8015
-    volumes:
-      - ./dist:/usr/share/nginx/html
+    #volumes:
+    # - ./dist:/usr/share/nginx/html
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.play_polychrom_dev.entrypoints=websecure"
