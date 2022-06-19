@@ -7,8 +7,8 @@ services:
     build: .
     ports:
       - 8015
-    volumes:
-      - /app/dist:/usr/share/nginx/html
+    #volumes:
+    #  - /app/dist:/usr/share/nginx/html
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.play_polychrom_dev.entrypoints=websecure"
