@@ -1,22 +1,17 @@
-FROM alpine:latest
-#EXPOSE 3000
-#FROM node:lts-alpine
-
-# make the 'app' folder the current working directory
-WORKDIR /dist
-
-# copy both 'package.json' and 'package-lock.json' (if available)
+### STAGE 1: Build ###
+FROM node:12.7-alpine AS build
+WORKDIR /usr/src/app
 COPY package*.json ./
-
-# install project dependencies
 RUN npm install
-
-# copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . .
-
-# build app for production with minification
 RUN npm run build
 
-#EXPOSE 8080
-EXPOSE 3000
+
+### STAGE 2: Run ###
+FROM nginx:1.17.1-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+
+
+#EXPOSE 3000
 #CMD [ "http-server", "dist" ]
