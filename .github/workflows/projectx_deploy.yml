@@ -28,7 +28,7 @@ jobs:
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
-          source: "."
+          source: "dist, docker-compose.yml"
           target: "/var/www/${{ github.event.repository.name }}"
 
       - name: Executing remote command
