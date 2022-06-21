@@ -2,7 +2,7 @@ version: "3"
 
 services:
   play_polychrom_dev:
-    image: nginx:stable-alpine
+    image: nginx:latest
     container_name: play_polychrom_dev
     ports:
       - 8015
