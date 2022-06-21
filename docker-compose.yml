@@ -1,14 +1,13 @@
 version: "3"
 
 services:
-  play-app:
-    image: play-app
-    container_name: play-app
-    build: .
+  play_polychrom_dev:
+    image: nginx:stable-alpine
+    container_name: play_polychrom_dev
     ports:
       - 8015
     volumes:
-      - /dist:/usr/share/nginx/html
+      - ./dist:/usr/share/nginx/html
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.play_polychrom_dev.entrypoints=websecure"
