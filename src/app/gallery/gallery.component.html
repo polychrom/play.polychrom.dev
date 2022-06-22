@@ -1,9 +1,5 @@
-<p>gallery component</p>
-
-<div *ngFor="let project of projects; let i = index">
-    <h1><a [routerLink]="['/project/'+ project.project_dir ]">{{ project.title }}</a></h1>{{ i }}
-
-    text:
-</div>
-<div class="content" role="main">
+<div class="gallery_wrapper">
+    <div class="gallery_item" *ngFor="let project of projects; let i = index">
+        <h2><a [routerLink]="['/project/'+ project.project_dir ]">{{ project.title }}</a></h2>{{ i }}
+    </div>
 </div>

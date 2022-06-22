@@ -1,3 +1,22 @@
 p {
     font-size: 30px;
 }
+
+h2 {
+    font-size: 24px;
+    color: #0000ff;
+}
+
+.gallery_wrapper {
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+.gallery_item {
+    margin: 10px;
+    width: 200px;
+    height: 500px;
+    background-color: #eee;
+    border-radius: 6px;
+}
