@@ -7,6 +7,9 @@ import { ApiService } from '../api.service';
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
+  public isGalleryView = false;
+  public isListView = true;
+
   public data: any;
   public projects: any;
   @Input() myData: any;
@@ -20,4 +23,12 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  toggleView() {
+    if (this.isGalleryView) {
+      this.isGalleryView = false;
+    } else {
+      this.isGalleryView = true;
+    }
+  }
 }

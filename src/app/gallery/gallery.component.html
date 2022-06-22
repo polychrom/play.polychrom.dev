@@ -1,5 +1,18 @@
-<div class="gallery_wrapper">
+<div (click)="toggleView()">change view</div>
+
+<div *ngIf='isGalleryView'>galleryview</div>
+<div *ngIf='!isGalleryView'>listview</div>
+
+<div *ngIf='isGalleryView' class="gallery_wrapper">
     <div [routerLink]="['/project/'+ project.project_dir ]" class="gallery_item"
+        *ngFor="let project of projects; let i = index">
+        <h2><a [routerLink]="['/project/'+ project.project_dir ]">{{ project.title }}</a></h2>{{ i }}
+    </div>
+</div>
+
+
+<div *ngIf='!isGalleryView' class="gallery_wrapper">
+    <div [routerLink]="['/project/'+ project.project_dir ]" class="gallery_list"
         *ngFor="let project of projects; let i = index">
         <h2><a [routerLink]="['/project/'+ project.project_dir ]">{{ project.title }}</a></h2>{{ i }}
     </div>

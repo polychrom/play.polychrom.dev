@@ -21,3 +21,15 @@ h2 {
     border-radius: 6px;
     cursor: pointer;
 }
+
+
+.gallery_list {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+}
+
+.gallery_list:first-child {
+    border-top: 1px solid #000;
+}
