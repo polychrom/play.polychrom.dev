@@ -10,7 +10,7 @@ h2 {
 .gallery_wrapper {
     display: flex;
     flex-flow: row wrap;
-
+    margin-top: 90px;
 }
 
 .gallery_item {
@@ -19,4 +19,5 @@ h2 {
     height: 500px;
     background-color: #eee;
     border-radius: 6px;
+    cursor: pointer;
 }
