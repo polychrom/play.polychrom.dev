@@ -10,10 +10,10 @@ const routes: Routes = [
   { path: 'header-component', component: HeaderComponent },
   { path: '', component: GalleryComponent },
   { path: 'info', component: InfoComponent },
-  { path: '**', component: PageNotFoundComponent },
-
-  /* { path: '**', component: PageNotFoundComponent },*/ // Wildcard route for a 404 page
   { path: 'project/:id', component: PortfolioDetailPageComponent }, // :id for project
+
+  /* 404 wildcard, last entry */
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
