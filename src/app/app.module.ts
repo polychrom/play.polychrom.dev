@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PortfolioDetailPageComponent } from './portfolio-detail-page/portfolio-detail-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { FooterComponent } from './footer/footer.component';
     PageNotFoundComponent,
     PortfolioDetailPageComponent,
     FooterComponent,
+    GalleryComponent,
+    InfoComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],

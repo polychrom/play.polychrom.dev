@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   Router,
   Event,
@@ -6,6 +6,7 @@ import {
   NavigationEnd,
   NavigationError,
 } from '@angular/router';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ import {
 export class AppComponent {
   title = 'play.polychrom.dev';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private apiService: ApiService) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         console.log('nav start');
