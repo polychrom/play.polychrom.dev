@@ -12,6 +12,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { InfoComponent } from './info/info.component';
 import { StackComponent } from './stack/stack.component';
 import { HeadlineComponent } from './headline/headline.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HeadlineComponent } from './headline/headline.component';
     InfoComponent,
     StackComponent,
     HeadlineComponent,
+    NavigationComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
