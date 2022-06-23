@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, share, shareReplay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +9,19 @@ import { catchError, retry } from 'rxjs/operators';
 export class ApiService {
   baseURL: string = 'https://play.polychrom.dev/assets/json/showcase.json';
   base: string = './assets/json/showcase.json';
+  data: Observable<any> | undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.getData();
+  }
 
-  getData(userName: string): Observable<any> {
-    return this.http.get(this.base);
+  getData(): Observable<any> {
+    console.info('get', this.data);
+    if (this.data) {
+      return this.data;
+    } else {
+      this.data = this.http.get<any>(this.base).pipe(shareReplay(1));
+      return this.data;
+    }
   }
 }
-
-//https://play.polychrom.dev/assets/json/showcase.json

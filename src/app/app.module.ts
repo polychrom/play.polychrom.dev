@@ -10,6 +10,8 @@ import { PortfolioDetailPageComponent } from './portfolio-detail-page/portfolio-
 import { FooterComponent } from './footer/footer.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { InfoComponent } from './info/info.component';
+import { StackComponent } from './stack/stack.component';
+import { HeadlineComponent } from './headline/headline.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { InfoComponent } from './info/info.component';
     FooterComponent,
     GalleryComponent,
     InfoComponent,
+    StackComponent,
+    HeadlineComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],

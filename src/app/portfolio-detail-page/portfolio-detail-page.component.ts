@@ -13,7 +13,8 @@ export class PortfolioDetailPageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getData('test').subscribe((response) => {
+    this.apiService.getData().subscribe((response) => {
+      console.log('from pdp');
       this.project = response.project;
 
       this.project.forEach((item: any) => {

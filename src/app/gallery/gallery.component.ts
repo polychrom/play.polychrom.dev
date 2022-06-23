@@ -9,20 +9,23 @@ import { ApiService } from '../api.service';
 export class GalleryComponent implements OnInit {
   public isGalleryView = false;
   public isListView = true;
+  public myData: any;
 
   public data: any;
   public projects: any;
-  @Input() myData: any;
+  // public myData: any; // =  'hello';
 
   constructor(private apiService: ApiService) {
-    this.apiService.getData('test').subscribe((response) => {
+    this.apiService.getData().subscribe((response) => {
       this.projects = response.project;
       this.myData = response.project;
       console.log('resp', this.projects);
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('mydata', this.myData);
+  }
 
   toggleView() {
     if (this.isGalleryView) {
