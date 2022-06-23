@@ -37,3 +37,24 @@ h2 {
 .toggle {
     cursor: pointer;
 }
+
+#reset {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.animation {
+    /*background: #CCC;*/
+    animation-duration: 1s;
+    animation-name: changeShadow;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+@keyframes changeShadow {
+    from {
+        background-color: #0000ff;
+    }
+    to {
+        background-color: #fff;
+    }
+}

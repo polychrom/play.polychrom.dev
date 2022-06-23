@@ -3,6 +3,14 @@
     <div *ngIf='!isGalleryView'><img src="../../assets/icons/list-solid.svg" height="20"></div>
 </div>
 
+<form>
+    <input type="text" (input)="filterByValue($event)" placeholder="search" />
+    <input id="reset" type="reset" (click)="resetFilter()" value="x">
+</form>
+
+<h3>{{ this.searchResults }}</h3>
+
+
 
 <div *ngIf='isGalleryView' class="gallery_wrapper">
     <div [routerLink]="['/project/'+ project.project_dir ]" class="gallery_item"
@@ -14,8 +22,8 @@
 
 
 <div *ngIf='!isGalleryView' class="gallery_wrapper">
-    <div [routerLink]="['/project/'+ project.project_dir ]" class="gallery_list"
+    <div [routerLink]="['/project/'+ project.project_dir ]" class="gallery_list animation"
         *ngFor="let project of projects; let i = index">
-        <h2><a [routerLink]="['/project/'+ project.project_dir ]">{{ project.title }}</a></h2>{{ i }}
+        <h2><a [routerLink]="['/project/'+ project.project_dir ]">{{ project.title }}</a></h2>{{ i + 1 }}
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -7,12 +7,19 @@ import { ApiService } from '../api.service';
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
+  @ViewChild('filterName') redel: any;
+
   public isGalleryView = false;
   public isListView = true;
   public myData: any;
+  private list: any;
+  public searchResults: number = 0;
 
   public data: any;
   public projects: any;
+  public inputValue = '';
+
+  public changeCount: any;
   // public myData: any; // =  'hello';
 
   constructor(private apiService: ApiService) {
@@ -20,6 +27,7 @@ export class GalleryComponent implements OnInit {
       this.projects = response.project;
       this.myData = response.project;
       console.log('resp', this.projects);
+      this.searchResults = this.myData.length;
     });
   }
 
@@ -33,5 +41,28 @@ export class GalleryComponent implements OnInit {
     } else {
       this.isGalleryView = true;
     }
+  }
+
+  filterByValue(event: Event): void {
+    // always init with empty array
+    this.list = [];
+
+    this.inputValue = (event.target as HTMLInputElement).value;
+    console.log('search', this.inputValue, this.inputValue.length);
+
+    this.myData.forEach((item: any) => {
+      if (item.title.indexOf(this.inputValue) > -1) {
+        console.log('item', item);
+        this.list.push(item);
+      }
+    });
+    console.log('length', this.list.length);
+    this.searchResults = this.list.length;
+
+    this.projects = this.list;
+  }
+
+  resetFilter(): void {
+    this.projects = this.myData;
   }
 }
