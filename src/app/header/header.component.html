@@ -1,12 +1,10 @@
 <div class="header">
-    <div class="toggleModal" (click)="openModal()">open modal</div>
     <div>
-        <a [routerLink]="baseUrl">polychrom.dev</a>
+        <a [routerLink]="'/'">polychrom.dev</a>
     </div>
-    <div>
-        <a routerLink="/stack" routerLinkActive="active">stack </a>
-        <a routerLink="/info" routerLinkActive="active">info</a>
-    </div>
+
+    <div class="toggleModal" (click)="openModal()"><img src="assets/icons/bars-solid.svg" height="20"></div>
+
 </div>
 <span class="spacer"></span>
 

@@ -24,7 +24,7 @@ export class AppComponent {
     source.subscribe((val) => console.log('scroll', val));
 
     const click$ = fromEvent(window, 'click');
-    click$.subscribe((val) => console.log('click', val));
+    //click$.subscribe((val) => console.log('click', val));
 
     const resize$ = fromEvent(window, 'resize');
     resize$.subscribe((val) => console.log(window.innerWidth));
