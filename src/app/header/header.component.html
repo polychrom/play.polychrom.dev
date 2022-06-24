@@ -1,4 +1,5 @@
 <div class="header">
+    <div class="toggleModal" (click)="openModal()">open modal</div>
     <div>
         <a [routerLink]="baseUrl">polychrom.dev</a>
     </div>
@@ -8,3 +9,7 @@
     </div>
 </div>
 <span class="spacer"></span>
+
+<ng-container *ngIf="this.open">
+    <app-navigation></app-navigation>
+</ng-container>
