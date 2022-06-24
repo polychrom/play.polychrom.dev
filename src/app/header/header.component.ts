@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import { SharedService } from '../shared.service';
 
 @Component({
   host: {
@@ -15,7 +16,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private locationStrategy: LocationStrategy,
     private _eref: ElementRef,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {}
 
   onClick(event: { target: any }) {
@@ -26,9 +28,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.events.subscribe((val) => {
-      console.log('routing', val);
       this.open ? (this.open = false) : null;
     });
+
+    this.sharedService
+      .getNavigationState()
+      .subscribe((navigationState: boolean) => {
+        this.open = navigationState;
+      });
   }
 
   openModal(): void {
