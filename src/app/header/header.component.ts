@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.events.subscribe((val) => {
+    this.router.events.subscribe(() => {
       this.open ? (this.open = false) : null;
     });
 
