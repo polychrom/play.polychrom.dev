@@ -13,6 +13,7 @@ import { InfoComponent } from './info/info.component';
 import { StackComponent } from './stack/stack.component';
 import { HeadlineComponent } from './headline/headline.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     StackComponent,
     HeadlineComponent,
     NavigationComponent,
+    MessageComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
