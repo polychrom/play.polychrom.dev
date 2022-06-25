@@ -20,11 +20,13 @@ export class AppComponent {
   scrollPosition = 0;
 
   constructor(private router: Router, private apiService: ApiService) {
-    const source = fromEvent(window, 'scroll');
-    source.subscribe((val) => {
+    const scrollPosition$ = fromEvent(window, 'scroll');
+    scrollPosition$.subscribe(() => console.log());
+
+    /*{
       this.scrollPosition = window.scrollY;
       console.log('scroll', Math.round(this.scrollPosition));
-    });
+    });*/
 
     const click$ = fromEvent(window, 'click');
     //click$.subscribe((val) => console.log('click', val));
