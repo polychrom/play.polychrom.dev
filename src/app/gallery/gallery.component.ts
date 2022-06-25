@@ -9,8 +9,8 @@ import { ApiService } from '../api.service';
 export class GalleryComponent implements OnInit {
   @ViewChild('filterName') redel: any;
 
-  public isGalleryView = false;
-  public isListView = true;
+  public isGalleryView = true;
+  public isListView = false;
   public myData: any;
   private list: any;
   public searchResults: number = 0;

@@ -18,6 +18,7 @@ import { ApiService } from './api.service';
 export class AppComponent {
   title = 'play.polychrom.dev';
   scrollPosition = 0;
+  public elements = 4;
 
   constructor(private router: Router, private apiService: ApiService) {
     const scrollPosition$ = fromEvent(window, 'scroll');
