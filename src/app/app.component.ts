@@ -18,16 +18,18 @@ import { ApiService } from './api.service';
 export class AppComponent {
   title = 'play.polychrom.dev';
   scrollPosition = 0;
-  public elements = 4;
+  isScrollTopActive = false;
+  public elements = 5;
 
   constructor(private router: Router, private apiService: ApiService) {
     const scrollPosition$ = fromEvent(window, 'scroll');
-    scrollPosition$.subscribe(() => console.log());
-
-    /*{
-      this.scrollPosition = window.scrollY;
-      console.log('scroll', Math.round(this.scrollPosition));
-    });*/
+    scrollPosition$.subscribe(() => {
+      if (window.scrollY > window.innerHeight / 2) {
+        this.isScrollTopActive = true;
+      } else {
+        this.isScrollTopActive = false;
+      }
+    });
 
     const click$ = fromEvent(window, 'click');
     //click$.subscribe((val) => console.log('click', val));
@@ -50,6 +52,14 @@ export class AppComponent {
         // Present error to user
         console.log(event.error);
       }
+    });
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
     });
   }
 }

@@ -1,6 +1,51 @@
 {
   "project": [
     {
+      "title": "play",
+      "year": 2021,
+      "project_dir": "play",
+      "tools": ["photoshop", "cinema4d"],
+      "images": ["play.gif"],
+      "background": "#000000",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
+    },
+    {
+      "title": "hello",
+      "year": 2021,
+      "project_dir": "hello",
+      "tools": ["photoshop", "cinema4d"],
+      "images": ["hello.jpg"],
+      "background": "#000000",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
+    },
+    {
+      "title": "octapods",
+      "year": 2021,
+      "project_dir": "octapods",
+      "tools": ["photoshop", "cinema4d"],
+      "images": ["1.jpg", "2.jpg", "3.jpg"],
+      "background": "#000000",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
+    },
+    {
+      "title": "neon",
+      "year": 2021,
+      "project_dir": "neon",
+      "tools": ["photoshop", "cinema4d"],
+      "images": ["1.jpg", "2.jpg"],
+      "background": "#000000",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
+    },
+    {
+      "title": "flow",
+      "year": 2021,
+      "project_dir": "flow",
+      "tools": ["photoshop", "cinema4d"],
+      "images": ["flow.jpg"],
+      "background": "#000000",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
+    },
+    {
       "title": "aasfwef wwt",
       "year": 2021,
       "project_dir": "circles",
@@ -97,33 +142,6 @@
       "project_dir": "hype",
       "tools": ["photoshop", "cinema4d"],
       "images": ["hype.gif"],
-      "background": "#000000",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
-    },
-    {
-      "title": "rorschach",
-      "year": 2005,
-      "project_dir": "rorschach",
-      "tools": ["photoshop", "cinema4d"],
-      "images": ["1.png"],
-      "background": "#000000",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
-    },
-    {
-      "title": "rorschach",
-      "year": 2005,
-      "project_dir": "rorschach",
-      "tools": ["photoshop", "cinema4d"],
-      "images": ["1.png"],
-      "background": "#000000",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
-    },
-    {
-      "title": "rorschach",
-      "year": 2005,
-      "project_dir": "rorschach",
-      "tools": ["photoshop", "cinema4d"],
-      "images": ["1.png"],
       "background": "#000000",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },

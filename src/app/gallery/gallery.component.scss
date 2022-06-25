@@ -2,75 +2,83 @@ $small: 600px;
 $medium: 900px;
 
 p {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 h2 {
-    font-size: 20px;
-    color: #000;
-    font-weight: 500;
+  font-size: 20px;
+  color: #000;
+  font-weight: 500;
 }
 
 .gallery_wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 
-    @media screen and (max-width: $medium) {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+  @media screen and (max-width: $medium) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    @media screen and (max-width: $small) {
-        grid-template-columns: 1fr 1fr;
-    }
+  @media screen and (max-width: $small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+#title {
+  font-size: 80px;
+  margin: 0 14px;
+  font-weight: 700;
+}
+
+.gallery_control {
 }
 
 .gallery_item {
-    margin: 10px;
-    height: auto;
-    cursor: pointer;
-    //background-color: rgb(228, 228, 228);
+  margin: 14px;
+  height: auto;
+  cursor: pointer;
+  //background-color: rgb(228, 228, 228);
 }
 
-
 .gallery_list {
-    width: 100%;
-    padding: 10px 0;
-    border-bottom: 1px solid #000;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #000;
+  cursor: pointer;
 }
 
 .gallery_list:first-child {
-    border-top: 1px solid #000;
+  border-top: 1px solid #000;
 }
 
 .toggle {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #reset {
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
 }
 .animation {
-    /*background: #CCC;*/
-    animation-duration: 1s;
-    animation-name: changeShadow;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
+  /*background: #CCC;*/
+  animation-duration: 1s;
+  animation-name: changeShadow;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
 }
 @keyframes changeShadow {
-    from {
-        background-color: #0000ff;
-    }
-    to {
-        background-color: #fff;
-    }
+  from {
+    background-color: #0000ff;
+  }
+  to {
+    background-color: #fff;
+  }
 }
 
 #input_search {
-    border: 1px solid #000;
-    height: 60px;
-    width: 300px;
-    outline: none;
+  border: 1px solid #000;
+  height: 60px;
+  width: 300px;
+  outline: none;
 }

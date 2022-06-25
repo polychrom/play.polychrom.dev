@@ -1,11 +1,12 @@
-<p>portfolio-detail-page</p>
+<div class="pdp">
+    <div class="intro">
+        <h3 class="title">{{ this.project.title }}</h3>
+        <div class="year">{{ project.year }}</div>
+        <div class="text">{{ this.project.text }}</div>
+    </div>
 
-
-<h3 class="title">{{ this.project.title }}</h3>
-
-<div>{{ this.project.text }}</div>
-
-----
-<div *ngFor="let image of project.images; let i = index">
-    <img [src]="'assets/projects/' + project.project_dir +'/' + project.images[i]" width="600">
+    ----
+    <div *ngFor="let image of project.images; let i = index">
+        <img [src]="'assets/projects/' + project.project_dir +'/' + project.images[i]" width="100%">
+    </div>
 </div>

@@ -9,6 +9,10 @@ import { ApiService } from '../api.service';
 export class GalleryComponent implements OnInit {
   @ViewChild('filterName') redel: any;
 
+  private i = 0;
+  public speed = 50; /* The speed/duration of the effect in milliseconds */
+  public txt;
+
   public isGalleryView = true;
   public isListView = false;
   public myData: any;
@@ -29,10 +33,13 @@ export class GalleryComponent implements OnInit {
       console.log('resp', this.projects);
       this.searchResults = this.myData.length;
     });
+
+    this.txt = 'Lorem ipsum typing effect!'; /* The text */
   }
 
   ngOnInit(): void {
     console.log('mydata', this.myData);
+    this.typeWriter();
   }
 
   toggleView() {
@@ -64,5 +71,19 @@ export class GalleryComponent implements OnInit {
 
   resetFilter(): void {
     this.projects = this.myData;
+  }
+
+  typeWriter(): void {
+    console.log(this.txt);
+    /*
+    if (this.i < this.txt.length) {
+      const element = document.getElementById('title');
+      if (element) {
+        console.log('element', element);
+        element.innerHTML += this.txt.charAt(this.i);
+        this.i++;
+      }
+      setTimeout(this.typeWriter, this.speed);
+    }*/
   }
 }

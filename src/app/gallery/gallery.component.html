@@ -1,34 +1,38 @@
-<div class="toggle" (click)="toggleView()">
-    <div *ngIf='isGalleryView'><img src="../../assets/icons/border-all-solid.svg" height="20"></div>
-    <div *ngIf='!isGalleryView'><img src="../../assets/icons/list-solid.svg" height="20"></div>
+<div class="gallery_control">
+    <!--
+    <div class="toggle" (click)="toggleView()">
+        <span *ngIf='!isGalleryView'><img src="../../assets/icons/border-all-solid.svg" height="20"></span>
+        <span *ngIf='isGalleryView'><img src="../../assets/icons/list-solid.svg" height="20"></span>
+    </div>
+
+    <form>
+        <input id="input_search" type="text" (input)="filterByValue($event)" placeholder="search" />
+        <input id="reset" type="reset" (click)="resetFilter()" value="x">
+    </form>
+    <h3>{{ this.searchResults }}</h3>
 </div>
-
-<form>
-    <input id="input_search" type="text" (input)="filterByValue($event)" placeholder="search" />
-    <input id="reset" type="reset" (click)="resetFilter()" value="x">
-</form>
-
-<h3>{{ this.searchResults }}</h3>
+-->
+    <div id="title">Creative Technologist</div>
 
 
-<!-- GALLERY VIEW -->
-<div *ngIf='isGalleryView' class="gallery_wrapper">
-    <div [routerLink]="[project.project_dir ]" class="gallery_item" *ngFor="let project of projects; let i = index">
-        <!--
+    <!-- GALLERY VIEW -->
+    <div *ngIf='isGalleryView' class="gallery_wrapper">
+        <div [routerLink]="[project.project_dir ]" class="gallery_item" *ngFor="let project of projects; let i = index">
+            <!--
         <app-headline [myData]="myData.title"></app-headline>
         -->
-        <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a></h2>
+            <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a></h2>
 
-        <img [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]" width="100%">
+            <img [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]" width="100%">
 
+        </div>
     </div>
-</div>
 
 
-<!-- LIST VIEW -->
-<div *ngIf='!isGalleryView' class="gallery_wrapper">
-    <div [routerLink]="[project.project_dir ]" class="gallery_list animation"
-        *ngFor="let project of projects; let i = index">
-        <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a></h2>{{ i + 1 }}
+    <!-- LIST VIEW -->
+    <div *ngIf='!isGalleryView' class="gallery_wrapper">
+        <div [routerLink]="[project.project_dir ]" class="gallery_list animation"
+            *ngFor="let project of projects; let i = index">
+            <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a></h2>{{ i + 1 }}
+        </div>
     </div>
-</div>

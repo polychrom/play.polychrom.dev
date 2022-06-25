@@ -1,22 +1,22 @@
 .header {
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
-    padding:20px;
-    margin:0;
-    font-size: 20px;
-    font-weight: 700;
-    display: flex;
-    justify-content: space-between;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 14px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
 }
 
 .spacer {
-    height: 70px;
-    display: block;
+  height: 70px;
+  display: block;
 }
 
 .toggleModal {
-    z-index: 9999;
-    cursor: pointer;
+  z-index: 9999;
+  cursor: pointer;
 }
