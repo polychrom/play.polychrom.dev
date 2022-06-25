@@ -1,7 +1,17 @@
 <div id="nav_wrapper">
     <div class="close" (click)="closeModal()">close</div>
     <nav>
-        <li><a routerLink="/stack" routerLinkActive="active">stack</a></li>
-        <li><a routerLink="/info" routerLinkActive="active">info</a></li>
+        <li><a routerLink="stack" routerLinkActive="active">stack</a></li>
+        <li><a routerLink="info" routerLinkActive="active">info</a></li>
+        <li><a routerLink="msg" routerLinkActive="active">message</a></li>
+
     </nav>
+    <div class="cockpit">
+        <li>project views: {{ this.projectViews ? this.projectViews : '0' }}</li>
+
+        <li class="links" *ngFor="let item of projectsViewed | slice:-3; index as i">
+            <span (click)="this.helperService.navigateByRoute(item)">{{ item }}</span>
+        </li>
+
+    </div>
 </div>

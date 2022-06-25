@@ -8,6 +8,10 @@
     height: 100%;
     background-color: #fff;
     border-left: 1px solid #000;
+    
+    // works, but remove background-color
+    backdrop-filter: blur(10px);
+
 }
 
 
@@ -15,11 +19,32 @@ nav {
     margin-top: 100px;
     font-size: 50px;
     text-align: right;
-    padding-right: 100px;
+    padding-right: 20px;
 }
 
 .close {
     cursor: pointer;
     text-align: right;
     padding: 20px;
+}
+
+.cockpit {
+    border-top: #000 1px solid;
+}
+
+.links {
+    padding: 10px 0 10px 10px;
+    border-top: #000 1px solid;
+    cursor: pointer;
+}
+
+.links:last-child {
+    border-bottom: #000 1px solid;
+}
+
+
+
+
+.links:hover {
+    color: #0000ff;
 }
