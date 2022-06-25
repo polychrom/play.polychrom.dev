@@ -13,10 +13,9 @@
 
 <!-- GALLERY VIEW -->
 <div *ngIf='isGalleryView' class="gallery_wrapper">
-    <div [routerLink]="['/project/'+ project.project_dir ]" class="gallery_item"
-        *ngFor="let project of projects; let i = index">
+    <div [routerLink]="[project.project_dir ]" class="gallery_item" *ngFor="let project of projects; let i = index">
         <app-headline [myData]="myData.title"></app-headline>
-        <h2><a [routerLink]="['/project/'+ project.project_dir ]">{{ project.title }}</a>{{ i }}</h2>
+        <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a>{{ i }}</h2>
 
         <img [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]" width="200">
 
@@ -26,8 +25,8 @@
 
 <!-- LIST VIEW -->
 <div *ngIf='!isGalleryView' class="gallery_wrapper">
-    <div [routerLink]="['/project/'+ project.project_dir ]" class="gallery_list animation"
+    <div [routerLink]="[project.project_dir ]" class="gallery_list animation"
         *ngFor="let project of projects; let i = index">
-        <h2><a [routerLink]="['/project/'+ project.project_dir ]">{{ project.title }}</a></h2>{{ i + 1 }}
+        <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a></h2>{{ i + 1 }}
     </div>
 </div>
