@@ -17,11 +17,14 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   title = 'play.polychrom.dev';
+  scrollPosition = 0;
 
   constructor(private router: Router, private apiService: ApiService) {
     const source = fromEvent(window, 'scroll');
-
-    source.subscribe((val) => console.log('scroll', val));
+    source.subscribe((val) => {
+      this.scrollPosition = window.scrollY;
+      console.log('scroll', Math.round(this.scrollPosition));
+    });
 
     const click$ = fromEvent(window, 'click');
     //click$.subscribe((val) => console.log('click', val));
