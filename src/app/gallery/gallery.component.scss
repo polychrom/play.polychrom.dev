@@ -1,14 +1,12 @@
 $small: 600px;
 $medium: 900px;
 
-p {
-  font-size: 30px;
-}
-
 h2 {
+  font-weight: 500;
+  display: inline-block;
+  margin: 0;
   font-size: 20px;
   color: #000;
-  font-weight: 500;
 }
 
 .gallery_wrapper img {
@@ -36,15 +34,9 @@ h2 {
   font-weight: 700;
 }
 
-.gallery_control {
-}
-
 .gallery_item {
   margin: 30px 14px;
   cursor: pointer;
-  //background-color: rgb(228, 228, 228);
-  //display: flex;
-  //align-items: center;
 }
 
 .overlay_wrapper {
@@ -72,11 +64,35 @@ h2 {
   display: block;
 }
 
+.gallery_control {
+  padding: 0 14px;
+  font-weight: 700;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+.gallery_control img {
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+.gallery_list_thumb {
+  //text-align: right;
+}
+
 .gallery_list {
   width: 100%;
   padding: 10px 0;
   border-bottom: 1px solid #000;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.gallery_list div {
+  flex: 1 1 0;
+  padding: 0 14px;
 }
 
 .gallery_list:first-child {

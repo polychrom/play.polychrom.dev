@@ -1,53 +1,58 @@
 <div class="gallery_control">
-    <!--
     <div class="toggle" (click)="toggleView()">
-        <span *ngIf='!isGalleryView'><img src="../../assets/icons/border-all-solid.svg" height="20"></span>
-        <span *ngIf='isGalleryView'><img src="../../assets/icons/list-solid.svg" height="20"></span>
+        <span *ngIf='!isGalleryView'><img src="../../assets/icons/border-all-solid.svg" height="20">grid</span>
+        <span *ngIf='isGalleryView'><img src="../../assets/icons/list-solid.svg" height="20">index</span>
     </div>
-
-    <form>
+    <!--    <form>
         <input id="input_search" type="text" (input)="filterByValue($event)" placeholder="search" />
         <input id="reset" type="reset" (click)="resetFilter()" value="x">
     </form>
     <h3>{{ this.searchResults }}</h3>
+    -->
 </div>
--->
 
 
 
 
-    <!-- GALLERY VIEW -->
-    <div *ngIf='isGalleryView' class="gallery_wrapper">
-        <div [routerLink]="[project.project_dir ]" class="gallery_item" *ngFor="let project of projects; let i = index">
-            <!--
+
+<!-- GALLERY VIEW -->
+<div *ngIf='isGalleryView' class="gallery_wrapper">
+    <div [routerLink]="[project.project_dir ]" class="gallery_item" *ngFor="let project of projects; let i = index">
+        <!--
         <app-headline [myData]="myData.title"></app-headline>
         -->
 
 
-            <div class="project_item_image">
+        <div class="project_item_image">
 
-                <div class="overlay_wrapper">
-                    <div class="overlay">{{ project.title }}</div>
-                </div>
-                <img [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
-                    [alt]="project.project_dir" width="100%" loading="lazy">
-
+            <div class="overlay_wrapper">
+                <div class="overlay">{{ project.title }}</div>
             </div>
-            <!--
+            <img [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]" [alt]="project.project_dir"
+                width="100%" loading="lazy">
+
+        </div>
+        <!--
             <div [ngStyle]="{'background-color':project.background ? project.background : 'red' }"
                 class="project_item_info">
                 <a [routerLink]="[project.project_dir ]">{{ project.title }}</a>
             </div>
         -->
 
-        </div>
     </div>
+</div>
 
 
-    <!-- LIST VIEW -->
-    <div *ngIf='!isGalleryView' class="gallery_wrapper">
-        <div [routerLink]="[project.project_dir ]" class="gallery_list animation"
-            *ngFor="let project of projects; let i = index">
-            <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a></h2>{{ i + 1 }}
+<!-- LIST VIEW -->
+<div *ngIf='!isGalleryView'>
+    <div [routerLink]="[project.project_dir ]" class="gallery_list" *ngFor="let project of projects; let i = index">
+        <div>
+            <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a></h2>
         </div>
+
+        <div>{{ project.year }}</div>
+
+        <div class="gallery_list_thumb"> <img [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
+                [alt]="project.project_dir" height="50" loading="lazy"></div>
     </div>
+</div>
