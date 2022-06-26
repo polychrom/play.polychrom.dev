@@ -1,6 +1,15 @@
 {
   "project": [
     {
+      "title": "iridescent",
+      "year": 2021,
+      "project_dir": "iridescent",
+      "tools": ["photoshop", "cinema4d"],
+      "images": ["iridescent.jpg"],
+      "background": "#e23838",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
+    },
+    {
       "title": "play",
       "year": 2021,
       "project_dir": "play",

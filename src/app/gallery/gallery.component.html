@@ -18,11 +18,6 @@
 <!-- GALLERY VIEW -->
 <div *ngIf='isGalleryView' class="gallery_wrapper">
     <div [routerLink]="[project.project_dir ]" class="gallery_item" *ngFor="let project of projects; let i = index">
-        <!--
-        <app-headline [myData]="myData.title"></app-headline>
-        -->
-
-
         <div class="project_item_image">
 
             <div class="overlay_wrapper">
