@@ -19,7 +19,7 @@ export class AppComponent {
   title = 'play.polychrom.dev';
   scrollPosition = 0;
   isScrollTopActive = false;
-  public elements = 5;
+  public elements = 3;
 
   constructor(private router: Router, private apiService: ApiService) {
     const scrollPosition$ = fromEvent(window, 'scroll');

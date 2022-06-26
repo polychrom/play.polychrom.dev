@@ -12,7 +12,8 @@
     <h3>{{ this.searchResults }}</h3>
 </div>
 -->
-    <div id="title">Creative Technologist</div>
+
+
 
 
     <!-- GALLERY VIEW -->
@@ -21,9 +22,23 @@
             <!--
         <app-headline [myData]="myData.title"></app-headline>
         -->
-            <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a></h2>
 
-            <img [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]" width="100%">
+
+            <div class="project_item_image">
+
+                <div class="overlay_wrapper">
+                    <div class="overlay">{{ project.title }}</div>
+                </div>
+                <img [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
+                    [alt]="project.project_dir" width="100%" loading="lazy">
+
+            </div>
+            <!--
+            <div [ngStyle]="{'background-color':project.background ? project.background : 'red' }"
+                class="project_item_info">
+                <a [routerLink]="[project.project_dir ]">{{ project.title }}</a>
+            </div>
+        -->
 
         </div>
     </div>

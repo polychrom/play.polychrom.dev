@@ -4,7 +4,7 @@
 
 .vertical_lines {
   position: relative;
-  border-left: 1px solid #c5c5c5;
+  border-left: 1px solid #d8d8d8;
   height: 100vh;
   display: block;
   flex: 1;
@@ -24,7 +24,6 @@
 
 .line_wrapper {
   display: grid;
-  //justify-content: space-evenly;
   position: fixed;
   z-index: -1;
   height: 100vh;
@@ -32,8 +31,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 
   @media screen and (max-width: 900px) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -46,7 +44,7 @@
 
 .scrolltop {
   position: fixed;
-  bottom: 30px;
+  bottom: 0;
   right: 0;
   width: 60px;
   height: 60px;

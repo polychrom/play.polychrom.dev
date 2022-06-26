@@ -3,12 +3,18 @@
   left: 0;
   right: 0;
   top: 0;
-  padding: 14px;
+  //padding: 14px;
   margin: 0;
   font-size: 20px;
   font-weight: 700;
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
+  z-index: 999;
+}
+
+.header div {
+  flex: 1 1 0;
+  padding: 14px;
 }
 
 .spacer {
@@ -17,6 +23,8 @@
 }
 
 .toggleModal {
+  text-align: right;
   z-index: 9999;
   cursor: pointer;
+  display: inline;
 }

@@ -6,7 +6,7 @@
       "project_dir": "play",
       "tools": ["photoshop", "cinema4d"],
       "images": ["play.gif"],
-      "background": "#000000",
+      "background": "#e23838",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -15,7 +15,7 @@
       "project_dir": "hello",
       "tools": ["photoshop", "cinema4d"],
       "images": ["hello.jpg"],
-      "background": "#000000",
+      "background": "#7a7a7a",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -24,7 +24,7 @@
       "project_dir": "octapods",
       "tools": ["photoshop", "cinema4d"],
       "images": ["1.jpg", "2.jpg", "3.jpg"],
-      "background": "#000000",
+      "background": "#2c2c2c",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -33,7 +33,7 @@
       "project_dir": "neon",
       "tools": ["photoshop", "cinema4d"],
       "images": ["1.jpg", "2.jpg"],
-      "background": "#000000",
+      "background": "#1572e4",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -60,7 +60,7 @@
       "project_dir": "disc",
       "tools": ["photoshop", "cinema4d"],
       "images": ["2.jpg", "3.jpg"],
-      "background": "#000000",
+      "background": "#c1af1b",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -97,7 +97,7 @@
       "project_dir": "rgb",
       "tools": ["photoshop", "cinema4d"],
       "images": ["b.png", "3.png"],
-      "background": "#000000",
+      "background": "#1640cb",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -106,7 +106,7 @@
       "project_dir": "tetrapods",
       "tools": ["photoshop", "cinema4d"],
       "images": ["1.jpg", "3.png"],
-      "background": "#000000",
+      "background": "#c1b09c",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -115,7 +115,7 @@
       "project_dir": "gradient",
       "tools": ["photoshop", "cinema4d"],
       "images": ["gradient1.jpg"],
-      "background": "#000000",
+      "background": "#7585ba",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -124,7 +124,7 @@
       "project_dir": "run",
       "tools": ["cinema4d"],
       "images": ["run.gif"],
-      "background": "#000000",
+      "background": "#e77ee7",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -133,7 +133,7 @@
       "project_dir": "gameboy",
       "tools": ["photoshop", "cinema4d"],
       "images": ["gameboy_gradient.jpg"],
-      "background": "#000000",
+      "background": "#add01b",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -142,7 +142,7 @@
       "project_dir": "hype",
       "tools": ["photoshop", "cinema4d"],
       "images": ["hype.gif"],
-      "background": "#000000",
+      "background": "#ffe200",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
