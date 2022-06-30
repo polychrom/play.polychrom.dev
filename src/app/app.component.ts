@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 import {
@@ -21,9 +22,14 @@ export class AppComponent {
   isScrollTopActive = false;
   public elements = 3;
 
-  constructor(private router: Router, private apiService: ApiService) {
+  constructor(
+    private router: Router,
+    private apiService: ApiService,
+    private viewportScroller: ViewportScroller
+  ) {
     const scrollPosition$ = fromEvent(window, 'scroll');
     scrollPosition$.subscribe(() => {
+      //console.log('y', window.scrollY);
       if (window.scrollY > window.innerHeight / 2) {
         this.isScrollTopActive = true;
       } else {
@@ -32,7 +38,9 @@ export class AppComponent {
     });
 
     const click$ = fromEvent(window, 'click');
-    //click$.subscribe((val) => console.log('click', val));
+    click$.subscribe((val) => {
+      console.log('click', val);
+    });
 
     const resize$ = fromEvent(window, 'resize');
     resize$.subscribe((val) => console.log(window.innerWidth));

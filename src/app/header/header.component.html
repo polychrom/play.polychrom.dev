@@ -1,14 +1,33 @@
 <div class="header">
-    <div>
-        <a [routerLink]="'/'">play</a>
+    <div id="control">
+        <div>
+            <a class="logo" [routerLink]="'/'">play</a>
+        </div>
+
+        <div>a design & technology studio</div>
+
+        <div class="navigation_icons">
+            <div>
+                {{ this.keyText }}
+            </div>
+            <div class="toggle" (click)="toggleView()">
+                <span (click)="setGalleryView('grid')" *ngIf="galleryMode === 'grid'">
+                    <img src="../../assets/icons/border-all-solid.svg" height="20">
+                </span>
+
+                <span (click)="setGalleryView('list')" *ngIf="galleryMode === 'list'">
+                    <img src="../../assets/icons/list-solid.svg" height="20">
+                </span>
+            </div>
+            <div class="toggleModal" (click)="openModal()"><img src="assets/icons/bars-solid.svg" alt="icon menu"
+                    height="20">
+            </div>
+        </div>
+
+
     </div>
 
-    <div>
-        a design & technology studio
-    </div>
 
-    <div class="toggleModal" (click)="openModal()"><img src="assets/icons/bars-solid.svg" alt="icon menu" height="20">
-    </div>
 
 </div>
 <span class="spacer"></span>

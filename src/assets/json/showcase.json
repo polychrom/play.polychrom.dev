@@ -6,7 +6,7 @@
       "project_dir": "iridescent",
       "tools": ["photoshop", "cinema4d"],
       "images": ["iridescent.jpg"],
-      "background": "#e23838",
+      "background": "#201925",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -24,7 +24,7 @@
       "project_dir": "hello",
       "tools": ["photoshop", "cinema4d"],
       "images": ["hello.jpg"],
-      "background": "#7a7a7a",
+      "background": "#21251e",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -42,7 +42,7 @@
       "project_dir": "neon",
       "tools": ["photoshop", "cinema4d"],
       "images": ["1.jpg", "2.jpg"],
-      "background": "#1572e4",
+      "background": "#0f0438",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -60,7 +60,7 @@
       "project_dir": "circles",
       "tools": ["photoshop", "cinema4d"],
       "images": ["circles0000.png", "circles0001.png", "circles0002.png"],
-      "background": "#000000",
+      "background": "#201925",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -69,7 +69,7 @@
       "project_dir": "disc",
       "tools": ["photoshop", "cinema4d"],
       "images": ["2.jpg", "3.jpg"],
-      "background": "#c1af1b",
+      "background": "#556162",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -78,7 +78,7 @@
       "project_dir": "strctr",
       "tools": ["photoshop", "cinema4d"],
       "images": ["1.png", "2.png", "3.png"],
-      "background": "#000000",
+      "background": "#b4b4b4",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {

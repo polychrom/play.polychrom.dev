@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { SharedService } from '../shared.service';
+import { fromEvent } from 'rxjs';
 
 @Component({
   host: {
@@ -13,6 +14,14 @@ import { SharedService } from '../shared.service';
 })
 export class HeaderComponent implements OnInit {
   public open = false;
+
+  private keyLeft = 37;
+  private keyRight = 39;
+  private keyUp = 38;
+  private keyDown = 40;
+  public keyText = 'text';
+  public galleryMode = 'grid';
+
   constructor(
     private locationStrategy: LocationStrategy,
     private _eref: ElementRef,
@@ -36,6 +45,40 @@ export class HeaderComponent implements OnInit {
       .subscribe((navigationState: boolean) => {
         this.open = navigationState;
       });
+
+    const keyDown$ = fromEvent(window, 'keydown');
+    keyDown$.subscribe((event: any) => {
+      // move left
+      if (event.keyCode === this.keyLeft) {
+        this.keyText = 'left';
+      }
+
+      //move right
+      if (event.keyCode === this.keyRight) {
+        this.keyText = 'right';
+      }
+
+      if (event.keyCode == this.keyDown) {
+        this.keyText = 'down';
+      }
+
+      // scroll up
+      if (event.keyCode == this.keyUp) {
+        this.keyText = 'up';
+      }
+    });
+  }
+  toggleView() {
+    if (this.galleryMode === 'grid') {
+      this.galleryMode = 'list';
+    } else {
+      this.galleryMode = 'grid';
+    }
+  }
+
+  setGalleryView(data: string): void {
+    this.sharedService.$galleryView.next(data);
+    this.galleryMode = data;
   }
 
   openModal(): void {
