@@ -21,6 +21,7 @@ export class AppComponent {
   scrollPosition = 0;
   isScrollTopActive = false;
   public elements = 3;
+  public routeChanged = false;
 
   constructor(
     private router: Router,
@@ -51,7 +52,7 @@ export class AppComponent {
       }
 
       if (event instanceof NavigationEnd) {
-        console.log('nav end');
+        console.log('navigation finished');
       }
 
       if (event instanceof NavigationError) {

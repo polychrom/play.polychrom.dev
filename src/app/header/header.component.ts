@@ -36,6 +36,40 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // draggable navigation
+    const nav = document.getElementById('control');
+    let dragged: any = null;
+
+    document.addEventListener('dragstart', (event) => {
+      // store a ref. on the dragged elem
+      dragged = event.target;
+    });
+
+    document.addEventListener('dragover', (event) => {
+      // prevent default to allow drop
+      event.preventDefault();
+    });
+
+    document.addEventListener('drop', (event) => {
+      // prevent default action (open as link for some elements)
+
+      event.preventDefault();
+      const myTarget = event.target as HTMLTextAreaElement;
+      console.log('drop', myTarget ? myTarget.className : '');
+
+      // move dragged element to the selected drop target
+      if (myTarget && myTarget.className == 'dropzone') {
+        dragged.parentNode.removeChild(dragged);
+        myTarget.appendChild(dragged);
+      }
+    });
+
+    if (nav) {
+      nav.addEventListener('dragstart', this.handleDragEnd);
+      nav.addEventListener('dragend', this.handleDragEnd);
+      nav.addEventListener('drop', this.dropNav);
+    }
+
     this.router.events.subscribe(() => {
       this.open ? (this.open = false) : null;
     });
@@ -87,5 +121,15 @@ export class HeaderComponent implements OnInit {
 
   closeModal(): void {
     this.open = false;
+  }
+
+  handleDragEnd(e: Event): void {
+    console.log('event', e.target);
+  }
+
+  dropNav(e: Event): void {
+    e.preventDefault();
+
+    console.log('drop', e);
   }
 }
