@@ -1,12 +1,14 @@
 <div class="pdp">
-    <div class="intro">
-        <h3 class="title">{{ this.project.title }}</h3>
+    <div *ngIf="project" class="intro">
+        <h3 class="title">{{ project.title }}</h3>
         <div class="year">{{ project.year }}</div>
-        <div class="text">{{ this.project.text }}</div>
+        <div class="text">{{ project.text }}</div>
     </div>
 
     ----
-    <div *ngFor="let image of project.images; let i = index">
-        <img [src]="'assets/projects/' + project.project_dir +'/' + project.images[i]" width="100%">
-    </div>
+    <ng-container *ngIf="project">
+        <div *ngFor="let image of project.images; let i = index">
+            <img [src]="'assets/projects/' + project.project_dir +'/' + project.images[i]" width="100%">
+        </div>
+    </ng-container>
 </div>
