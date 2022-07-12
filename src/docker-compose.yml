@@ -1,24 +1,24 @@
 version: "3"
 
 services:
-  weather_polychrom_dev_ssr:
+  play_polychrom_dev_ssr:
     build: .
-    container_name: weather_polychrom_dev_ssr
+    container_name: play_polychrom_dev_ssr
     ports:
       - 4000:4000
     volumes:
       # /dist/server/
       # /dist/browser/
-      - ./dist/weather.polychrom.dev:/dist/weather.polychrom.dev
+      - ./dist/play.polychrom.dev:/dist/play.polychrom.dev
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.weather_polychrom_dev.entrypoints=websecure"
-      - "traefik.http.routers.weather_polychrom_dev.rule=Host(`weather.polychrom.dev`)"
-      - "traefik.http.routers.weather_polychrom_dev.tls.certresolver=myresolver"
+      - "traefik.http.routers.play_polychrom_dev.entrypoints=websecure"
+      - "traefik.http.routers.play_polychrom_dev.rule=Host(`play.polychrom.dev`)"
+      - "traefik.http.routers.play_polychrom_dev.tls.certresolver=myresolver"
       - "traefik.port=8015"
 
       # Enable gzip compression
-      - "traefik.http.routers.weather_polychrom_dev.middlewares=test-compress"
+      - "traefik.http.routers.play_polychrom_dev.middlewares=test-compress"
       - "traefik.http.middlewares.test-compress.compress=true"
 
     networks:
