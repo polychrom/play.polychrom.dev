@@ -10,6 +10,7 @@ import {
 } from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { ApiService } from './api.service';
+import { HelperService } from './helper.service';
 
 @Component({
   selector: 'app-root',
@@ -23,45 +24,43 @@ export class AppComponent {
   public elements = 3;
   public routeChanged = false;
 
-  constructor(
-    private router: Router,
-    private apiService: ApiService,
-    private viewportScroller: ViewportScroller
-  ) {
-    const scrollPosition$ = fromEvent(window, 'scroll');
-    scrollPosition$.subscribe(() => {
-      //console.log('y', window.scrollY);
-      if (window.scrollY > window.innerHeight / 2) {
-        this.isScrollTopActive = true;
-      } else {
-        this.isScrollTopActive = false;
-      }
-    });
+  constructor(private router: Router, private helperService: HelperService) {
+    if (this.helperService.isBrowser()) {
+      const scrollPosition$ = fromEvent(window, 'scroll');
+      scrollPosition$.subscribe(() => {
+        //console.log('y', window.scrollY);
+        if (window.scrollY > window.innerHeight / 2) {
+          this.isScrollTopActive = true;
+        } else {
+          this.isScrollTopActive = false;
+        }
+      });
 
-    const click$ = fromEvent(window, 'click');
-    click$.subscribe((val) => {
-      console.log('click', val);
-    });
+      const click$ = fromEvent(window, 'click');
+      click$.subscribe((val) => {
+        console.log('click', val);
+      });
 
-    const resize$ = fromEvent(window, 'resize');
-    resize$.subscribe((val) => console.log(window.innerWidth));
+      const resize$ = fromEvent(window, 'resize');
+      resize$.subscribe((val) => console.log(window.innerWidth));
 
-    this.router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationStart) {
-        console.log('nav start');
-      }
+      this.router.events.subscribe((event: Event) => {
+        if (event instanceof NavigationStart) {
+          console.log('nav start');
+        }
 
-      if (event instanceof NavigationEnd) {
-        console.log('navigation finished');
-      }
+        if (event instanceof NavigationEnd) {
+          console.log('navigation finished');
+        }
 
-      if (event instanceof NavigationError) {
-        // Hide loading indicator
+        if (event instanceof NavigationError) {
+          // Hide loading indicator
 
-        // Present error to user
-        console.log(event.error);
-      }
-    });
+          // Present error to user
+          console.log(event.error);
+        }
+      });
+    }
   }
 
   scrollToTop(): void {

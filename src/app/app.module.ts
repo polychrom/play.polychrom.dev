@@ -29,7 +29,7 @@ import { MessageComponent } from './message/message.component';
     NavigationComponent,
     MessageComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
