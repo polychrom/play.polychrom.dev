@@ -15,13 +15,25 @@
 </ng-container>
 
 
-
-
-
 <!-- Index VIEW -->
 <ng-container *ngIf="galleryMode === View.Index && projects">
     <div class="view_index" [routerLink]="[project.project_dir]" *ngFor="let project of projects; let i = index">
         <div class="view_index_title">{{ project.title }}</div>
         <div class="view_index_year">{{ project.year }}</div>
+    </div>
+</ng-container>
+
+
+<!-- Grid VIEW -->
+<ng-container *ngIf="galleryMode === View.Grid && projects">
+    <div class="view_grid">
+        <div class="view_grid_item" [routerLink]="[project.project_dir]"
+            *ngFor="let project of projects; let i = index">
+            <!--
+            <div class="view_grid_title">{{ project.title }}</div>
+            -->
+            <img class="overlay" [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
+                [alt]="project.project_dir">
+        </div>
     </div>
 </ng-container>

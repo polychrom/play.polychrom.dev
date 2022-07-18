@@ -1,13 +1,34 @@
 $small: 600px;
 $medium: 900px;
 
+.view_grid_title {
+  display: none;
+}
+
+.view_grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.view_grid_item {
+  margin-top: 50px;
+  padding: 20px;
+  grid-column: span 3;
+  cursor: pointer;
+}
+
 .view_index {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   border-bottom: 1px solid #000000;
-  margin: 20px 0;
+  padding: 10px 0;
   cursor: pointer;
   font-size: 30px;
+}
+
+.view_index:hover {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .view_index_title {
