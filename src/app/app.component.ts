@@ -38,7 +38,7 @@ export class AppComponent {
 
       const click$ = fromEvent(window, 'click');
       click$.subscribe((val) => {
-        console.log('click', val);
+        // console.log('click', val);
       });
 
       const resize$ = fromEvent(window, 'resize');
@@ -46,11 +46,11 @@ export class AppComponent {
 
       this.router.events.subscribe((event: Event) => {
         if (event instanceof NavigationStart) {
-          console.log('nav start');
+          // console.log('nav start');
         }
 
         if (event instanceof NavigationEnd) {
-          console.log('navigation finished');
+          // console.log('navigation finished');
         }
 
         if (event instanceof NavigationError) {

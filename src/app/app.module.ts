@@ -12,7 +12,6 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { InfoComponent } from './info/info.component';
 import { StackComponent } from './stack/stack.component';
 import { HeadlineComponent } from './headline/headline.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { MessageComponent } from './message/message.component';
 
 @NgModule({
@@ -26,10 +25,13 @@ import { MessageComponent } from './message/message.component';
     InfoComponent,
     StackComponent,
     HeadlineComponent,
-    NavigationComponent,
     MessageComponent,
   ],
-  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    HttpClientModule,
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

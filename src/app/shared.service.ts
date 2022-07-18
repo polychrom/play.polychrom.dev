@@ -1,21 +1,14 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { View } from './enum';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
-  private modal = new Subject<boolean>();
+  public $galleryMode = new BehaviorSubject(View.Default);
 
-  public $galleryView = new BehaviorSubject('grid');
-
-  constructor() {}
-
-  setNavigationState(state: boolean) {
-    this.modal.next(state);
-    console.log('shared', state);
-  }
-  getNavigationState(): Observable<any> {
-    return this.modal.asObservable();
+  constructor() {
+    // this.$galleryMode.subscribe((v) => console.log('MODE', v));
   }
 }

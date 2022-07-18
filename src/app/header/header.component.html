@@ -1,51 +1,8 @@
 <div class="header">
-    <div id="control" draggable="true">
-        <div>
-            <a class="logo" [routerLink]="'/'">play</a>
-        </div>
-
-        <div>design & technology</div>
-
-        <div class="navigation_icons">
-            <div>
-                <img class="arrow" [ngStyle]="{'transform': 
-                this.keyText === 'up' ? 'rotate(0)' : 
-                this.keyText === 'right' ? 'rotate(90deg)' : 
-                this.keyText === 'down' ? 'rotate(180deg)' : 
-                this.keyText === 'left' ? 'rotate(270deg)' :'' }" src="../../assets/icons/circle-arrow-up-solid.svg"
-                    height="25">
-
-            </div>
-            <div class="toggle" (click)="toggleView()">
-                <span (click)="setGalleryView('grid')" *ngIf="galleryMode === 'grid'">
-                    <img src="../../assets/icons/border-all-solid.svg" height="25">
-                </span>
-
-
-
-                <span (click)="setGalleryView('list')" *ngIf="galleryMode === 'list'">
-                    <img src="../../assets/icons/list-solid.svg" height="25">
-                </span>
-            </div>
-            <div class="toggleModal" (click)="openModal()"><img src="assets/icons/bars-solid.svg" alt="icon menu"
-                    height="25">
-            </div>
-        </div>
-
-
+    <div class="header_item_logo">Play</div>
+    <div class="header_item_teaser">Selected Works</div>
+    <div class="header_item_info">Design & Technology</div>
+    <div class="header_item_view" (click)="this.toggleView()">
+        <span> {{ this.galleryMode }} </span>
     </div>
-
-
-
 </div>
-<span class="spacer"></span>
-
-<ng-container *ngIf="this.open">
-    <app-navigation></app-navigation>
-</ng-container>
-
-<!--
-<div id="control_bottom">
-    <div class="dropzone">dropzone</div>
-</div>
--->

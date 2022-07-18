@@ -1,13 +1,39 @@
 .header {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 30px;
-  font-size: 24px;
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   z-index: 999;
+  width: 100vw;
+  color: #000;
+}
+
+.header_item_logo {
+  padding-left: 20px;
+  position: fixed;
+  grid-column: 1/2;
+  //border: 1px solid #ff0000;
+}
+
+.header_item_view {
+  cursor: pointer;
+  right: 20px;
+  position: fixed;
+  grid-column: 11 / 13;
+
+  & span {
+    border-bottom: 1px solid #000000;
+  }
+}
+
+.header_item_teaser {
+  position: relative;
+  grid-column: 3 / 5;
+  //border: 1px solid #ff0000;
+}
+
+.header_item_info {
+  grid-column: 6 / 10;
+  //border: 1px solid #ff0000;
 }
 
 a {

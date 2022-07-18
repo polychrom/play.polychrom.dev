@@ -15,11 +15,12 @@ export class PortfolioDetailPageComponent implements OnInit {
   private currentRoute = this.route.snapshot.params['id'];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
-    this.updateProjectViews();
-    this.updateProjectsViewed();
+    //this.updateProjectViews();
+    // this.updateProjectsViewed();
   }
 
   ngOnInit(): void {
+    /*
     this.apiService.getData().subscribe((response) => {
       this.project = response.project;
 
@@ -29,7 +30,7 @@ export class PortfolioDetailPageComponent implements OnInit {
           console.log(this.project);
         }
       });
-    });
+    });*/
   }
 
   updateProjectViews(): void {

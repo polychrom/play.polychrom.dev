@@ -1,33 +1,27 @@
-<!-- GALLERY VIEW -->
-<div *ngIf="galleryMode === 'grid'" class="gallery_wrapper">
-    <div [routerLink]="[project.project_dir ]" class="gallery_item" *ngFor="let project of projects; let i = index">
-        <div class="item" [ngClass]=" { 'active_element_border' : this.activeElement===i }">
+<!-- Default VIEW -->
+<ng-container *ngIf="this.galleryMode === View.Default && projects">
+    <div *ngFor="let project of projects; let i = index">
 
-            <img class="overlay" [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
-                [alt]="project.project_dir" loading="lazy">
+        <div id="view_linear">
+            <div class="item_title">{{ project.title }}</div>
+            <div class="item_text">{{ project.text }}</div>
 
-            <div class="gallery_item_text"
-                [ngStyle]="{'background-color':project.background ? project.background : 'red' }">
-                <div class="gallery_item_text_first">
-                    <div>{{ project.title }}</div>
-                    <div>{{ project.year }}</div>
-                </div>
+            <div class="item_image" [ngStyle]="{'grid-column': this.getSpan(project.width) }">
+                <img class="overlay" [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
+                    [alt]="project.project_dir">
             </div>
         </div>
     </div>
-</div>
+</ng-container>
 
 
-<!-- LIST VIEW -->
-<div *ngIf="galleryMode === 'list'">
-    <div [routerLink]="[project.project_dir ]" class="gallery_list" *ngFor="let project of projects; let i = index">
-        <div>
-            <h2><a [routerLink]="[project.project_dir ]">{{ project.title }}</a></h2>
-        </div>
 
-        <div>{{ project.year }}</div>
 
-        <div class="gallery_list_thumb"> <img [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
-                [alt]="project.project_dir" height="50" loading="lazy"></div>
+
+<!-- Index VIEW -->
+<ng-container *ngIf="galleryMode === View.Index && projects">
+    <div class="view_index" [routerLink]="[project.project_dir]" *ngFor="let project of projects; let i = index">
+        <div class="view_index_title">{{ project.title }}</div>
+        <div class="view_index_year">{{ project.year }}</div>
     </div>
-</div>
+</ng-container>
