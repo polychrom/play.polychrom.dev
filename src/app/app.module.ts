@@ -9,10 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PortfolioDetailPageComponent } from './portfolio-detail-page/portfolio-detail-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { InfoComponent } from './info/info.component';
 import { StackComponent } from './stack/stack.component';
-import { HeadlineComponent } from './headline/headline.component';
-import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +19,7 @@ import { MessageComponent } from './message/message.component';
     PortfolioDetailPageComponent,
     FooterComponent,
     GalleryComponent,
-    InfoComponent,
     StackComponent,
-    HeadlineComponent,
-    MessageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
