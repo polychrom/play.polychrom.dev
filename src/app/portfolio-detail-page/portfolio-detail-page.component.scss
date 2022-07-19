@@ -1,12 +1,3 @@
-h3 {
-  //text-transform: uppercase;
-  margin: 0;
-  font-size: 20px;
-}
-
-.pdp {
-}
-
 .intro {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -23,12 +14,10 @@ img {
 
 .year {
   grid-column: 2 / 3;
-  font-size: 20px;
   padding: 0 14px;
 }
 
 .text {
   grid-column: 3 / 6;
   padding: 0 14px;
-  font-size: 20px;
 }

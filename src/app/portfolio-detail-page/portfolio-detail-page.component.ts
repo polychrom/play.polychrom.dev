@@ -14,8 +14,6 @@ export class PortfolioDetailPageComponent implements OnInit, OnDestroy {
 
   private _subscription!: Subscription;
 
-  private currentRoute = this.route.snapshot.params['id'];
-
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -31,6 +29,5 @@ export class PortfolioDetailPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this._subscription.unsubscribe();
-    console.log('unsubscribe');
   }
 }
