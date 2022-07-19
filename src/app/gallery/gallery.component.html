@@ -5,8 +5,10 @@
             <div class="item_title">{{ project.title }}</div>
             <div class="item_text">{{ project.text }}</div>
             <div class="item_image" [ngStyle]="{'grid-column': this.getSpan(project.width) }">
-                <img class="overlay" [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
-                    [alt]="project.project_dir">
+                <a [routerLink]="[project.project_dir]">
+                    <img class="overlay" [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
+                        [alt]="project.project_dir">
+                </a>
             </div>
         </div>
     </div>
