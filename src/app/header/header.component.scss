@@ -8,6 +8,7 @@
 }
 
 .header_item_logo {
+  cursor: pointer;
   padding-left: 20px;
   position: fixed;
   grid-column: 1/2;
@@ -34,10 +35,6 @@
 .header_item_info {
   grid-column: 6 / 10;
   //border: 1px solid #ff0000;
-}
-
-a {
-  color: #fff;
 }
 
 .spacer {

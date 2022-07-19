@@ -12,6 +12,6 @@ export class PageNotFoundComponent implements OnInit {
   public size = '';
 
   ngOnInit(): void {
-    this.size = this._helperService.getWindowSize();
+    // this.size = this._helperService.getWindowSize();
   }
 }

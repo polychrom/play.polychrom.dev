@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class ApiService {
   private endpoint: string = '/assets/json/showcase.json';
 
   data: Observable<any> | undefined;
-  public $mydata = new Subject();
+  public $data = new ReplaySubject();
 
   constructor(
     private http: HttpClient,
@@ -24,12 +24,12 @@ export class ApiService {
     } else {
       this.endpointUrl = this.serverHost += this.endpoint;
     }
-    this.getMyData();
+    this.getData();
   }
 
-  getMyData() {
+  getData() {
     this.http.get(this.endpointUrl).subscribe((res: any) => {
-      this.$mydata.next(res);
+      this.$data.next(res);
     });
   }
 }

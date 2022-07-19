@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { SharedService } from '../shared.service';
 import { View } from '../enum';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
@@ -18,25 +19,26 @@ export class GalleryComponent implements OnInit {
     width: '8',
   };
 
-  /*
-  public isGalleryView = true;
-  public isListView = false;
-  public myData: any;
-  */
-
   public data: any;
   public projects: any;
 
   constructor(
     private apiService: ApiService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private activatedRoute: ActivatedRoute
   ) {
-    this.apiService.$mydata.subscribe((res: any) => {
-      this.projects = res.project;
-    });
+    // restore gallery view when reloading app
+    const viewModeFromQuery = this.activatedRoute.snapshot.queryParams['view'];
+    if (viewModeFromQuery) {
+      this.sharedService.$galleryMode.next(viewModeFromQuery);
+    }
   }
 
   ngOnInit(): void {
+    this.apiService.$data.subscribe((res: any) => {
+      this.projects = res.project;
+    });
+
     this.sharedService.$galleryMode.subscribe((currentMode) => {
       this.galleryMode = currentMode;
     });

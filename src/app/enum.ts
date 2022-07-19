@@ -1,7 +1,7 @@
 export enum Enum {}
 
 export enum View {
-  Index = 'Index',
-  Default = 'Default',
-  Grid = 'Grid',
+  Index = 'index',
+  Default = 'default',
+  Grid = 'grid',
 }

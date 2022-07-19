@@ -1,11 +1,9 @@
 <!-- Default VIEW -->
 <ng-container *ngIf="this.galleryMode === View.Default && projects">
     <div *ngFor="let project of projects; let i = index">
-
         <div id="view_linear">
             <div class="item_title">{{ project.title }}</div>
             <div class="item_text">{{ project.text }}</div>
-
             <div class="item_image" [ngStyle]="{'grid-column': this.getSpan(project.width) }">
                 <img class="overlay" [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
                     [alt]="project.project_dir">

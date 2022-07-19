@@ -1,8 +1,11 @@
 <div class="header">
-    <div class="header_item_logo">Play</div>
+    <div class="header_item_logo"><a (click)="this.navigate()">Play</a></div>
     <div class="header_item_teaser">Selected Works</div>
     <div class="header_item_info">Design & Technology</div>
     <div class="header_item_view" (click)="this.nextViewMode()">
-        <span> {{ this.galleryMode }} </span>
+        <span>
+            <a [routerLink]="['']" [queryParams]="{view: this.galleryMode }">
+                {{this.galleryMode | titlecase }}</a>
+        </span>
     </div>
 </div>

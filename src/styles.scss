@@ -7,16 +7,14 @@ body {
   font-size: 16px;
 }
 
-a:link {
+a {
   text-decoration: none;
-}
-
-a:visited {
   color: #000;
 }
 
+a:visited,
 a:hover {
-  color: #0000ff;
+  color: #000;
 }
 
 li {
