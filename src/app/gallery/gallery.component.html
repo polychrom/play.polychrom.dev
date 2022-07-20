@@ -29,7 +29,7 @@
 <!-- Index VIEW -->
 <ng-container *ngIf="galleryMode === View.Index && projects">
     <div class="view_index" [routerLink]="[project.project_dir]" *ngFor="let project of projects; let i = index">
-        <div class="view_index_title">{{ project.title }}</div>
+        <div class="view_index_title">{{ project.title | titlecase }}</div>
         <div class="view_index_year">{{ project.year }}</div>
     </div>
 </ng-container>
