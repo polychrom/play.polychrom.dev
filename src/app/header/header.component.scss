@@ -12,7 +12,6 @@
   padding-left: 20px;
   position: fixed;
   grid-column: 1/2;
-  //border: 1px solid #ff0000;
 }
 
 .header_item_view {
@@ -23,18 +22,17 @@
 
   & span {
     border-bottom: 1px solid #000000;
+    margin-right: 50px;
   }
 }
 
 .header_item_teaser {
   position: relative;
   grid-column: 3 / 5;
-  //border: 1px solid #ff0000;
 }
 
 .header_item_info {
   grid-column: 6 / 10;
-  //border: 1px solid #ff0000;
 }
 
 .spacer {
@@ -42,63 +40,7 @@
   display: block;
 }
 
-.toggleModal {
-  text-align: right;
-  z-index: 9999;
-  cursor: pointer;
-  display: inline;
-}
-
-/*
-#control_bottom {
-  position: fixed;
-  bottom: 30px;
-  width: 600px;
-  height: 50px;
-  border: #ff0000 1px solid;
-}*/
-
-#control {
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 600px;
-  border-radius: 80px;
-  color: #fff;
-  background-color: rgba(57, 62, 70, 0.4);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-
-  box-shadow: rgba(19, 19, 31, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.8) 0px 30px 60px -30px;
-}
-
-.navigation_icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #000;
-  width: 130px;
-}
-
-.navigation_icons img {
-  vertical-align: middle;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.control_arrows {
-  border-radius: 80px;
-  display: block;
-  margin: 5px;
-  //background-color: #acb0b7;
-  background-color: #000;
-  color: #fff;
-  width: 60px;
-  height: 60px;
-}
-
-.arrow {
-  transition: all 0.3s ease-in-out;
+.icon_github {
+  right: 0px;
+  position: absolute;
 }

@@ -10,10 +10,14 @@ const routes: Routes = [
   { path: 'header-component', component: HeaderComponent },
   { path: '', component: GalleryComponent },
   { path: 'stack', component: StackComponent },
+  { path: '404', component: PageNotFoundComponent },
   { path: ':id', component: PortfolioDetailPageComponent }, // :id for project
 
   /* 404 wildcard, last entry */
-  { path: '**', component: PageNotFoundComponent },
+  {
+    path: '**',
+    redirectTo: '404',
+  },
 ];
 
 @NgModule({
