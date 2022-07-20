@@ -1,3 +1,7 @@
+<span *ngIf="this.textOverlay" class="project_text_overlay" [ngStyle]="{'left': this.posX, 'top': this.posY }">
+    {{ this.textOverlay }}
+</span>
+
 <!-- Default VIEW -->
 <ng-container *ngIf="this.galleryMode === View.Default && projects">
     <div *ngFor="let project of projects; let i = index">
@@ -6,8 +10,11 @@
             <div class="item_text">{{ project.text }}</div>
             <div class="item_image" [ngStyle]="{'grid-column': this.getSpan(project.width) }">
                 <a [routerLink]="[project.project_dir]">
-                    <img class="overlay" [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
+                    <img id="{{ project.title }}" class="image"
+                        [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
                         [alt]="project.project_dir">
+                    <div class="overlay"> </div>
+
                 </a>
             </div>
         </div>
@@ -29,11 +36,8 @@
     <div class="view_grid">
         <div class="view_grid_item" [routerLink]="[project.project_dir]"
             *ngFor="let project of projects; let i = index">
-            <!--
-            <div class="view_grid_title">{{ project.title }}</div>
-            -->
-            <img class="overlay" [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
-                [alt]="project.project_dir">
+            <img id="{{ project.title }}" class="overlay"
+                [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]" [alt]="project.project_dir">
         </div>
     </div>
 </ng-container>
