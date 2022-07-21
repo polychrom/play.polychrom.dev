@@ -83,12 +83,20 @@ $medium: 900px;
   color: #ffffff;
 }
 
+.view_index_number {
+  grid-column: 2 / 3;
+}
+
 .view_index_title {
   grid-column: 3 / 5;
 }
 
+.view_index_format {
+  grid-column: 6 / 7;
+}
+
 .view_index_year {
-  grid-column: 8 / 9;
+  grid-column: 10 / 11;
 }
 
 #view_linear {
