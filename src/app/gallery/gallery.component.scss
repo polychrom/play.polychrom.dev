@@ -26,6 +26,23 @@ $medium: 900px;
   width: 100%;
 }
 
+.project_format {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.icon_video {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  background-image: url(../../assets/icons/video-solid.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
 .project_text_overlay {
   position: absolute;
   background-color: #fff;

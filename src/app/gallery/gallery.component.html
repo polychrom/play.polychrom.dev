@@ -46,6 +46,7 @@
                     [alt]="project.project_dir">
                 <div class="overlay"
                     [ngStyle]="{'background-color': project.background ? project.background : '#ff0000' }">
+                    <span *ngIf="project.video" class="project_format icon_video"></span>
                 </div>
             </div>
         </div>
