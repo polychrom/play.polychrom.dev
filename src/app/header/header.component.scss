@@ -12,17 +12,28 @@
   padding-left: 20px;
   position: fixed;
   grid-column: 1/2;
+
+  & a {
+    border-bottom: 1px solid #000000;
+  }
 }
 
 .header_item_view {
-  cursor: pointer;
   right: 20px;
   position: fixed;
   grid-column: 11 / 13;
 
   & span {
-    border-bottom: 1px solid #000000;
     margin-right: 50px;
+  }
+}
+
+.nav_item {
+  border-bottom: 1px solid #000000;
+  cursor: pointer;
+
+  &:first-child {
+    margin-right: 20px;
   }
 }
 

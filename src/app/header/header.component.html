@@ -1,14 +1,16 @@
 <div class="header">
-    <div class="header_item_logo"><a (click)="this.navigate()">Play</a></div>
+    <div class="header_item_logo"><a (click)="this.navigate(View.Default)">Play</a></div>
     <div class="header_item_teaser">Selected Works</div>
     <div class="header_item_info">Design & Technology</div>
-    <div class="header_item_view" (click)="this.nextViewMode()">
-        <span>
-            <a [routerLink]="['']" [queryParams]="{view: this.galleryMode }">
-                {{this.galleryMode | titlecase }}</a>
+    <div class="header_item_view">
+        <span class="navigation">
+            <a class="nav_item" [routerLink]="['']" [queryParams]="{view: View.Index }"
+                (click)="this.viewMode(View.Index)">{{ View.Index | titlecase }}</a>
+            <a class="nav_item" [routerLink]="['']" [queryParams]="{view: View.Grid }"
+                (click)="this.viewMode(View.Grid)">{{ View.Grid | titlecase }}</a>
         </span>
 
-        <a class="icon_github" href="https://github.com/polychrom/play.polychrom.dev" target="_blank">
+        <a class=" icon_github" href="https://github.com/polychrom/play.polychrom.dev" target="_blank">
             <img alt="github icon" src="../../assets/icons/github.svg" height="20">
         </a>
     </div>
