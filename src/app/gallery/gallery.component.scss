@@ -31,16 +31,23 @@ $medium: 900px;
   margin-left: 10px;
 }
 
-.icon_video {
+.icon {
   display: block;
   width: 30px;
   height: 30px;
   border-radius: 15px;
   background-color: #ffffff;
-  background-image: url(../../assets/icons/video-solid.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50%;
+}
+
+.icon_video {
+  background-image: url(../../assets/icons/video-solid.svg);
+}
+
+.icon_eye {
+  background-image: url(../../assets/icons/eye-solid.svg);
 }
 
 .project_text_overlay {
@@ -96,7 +103,23 @@ $medium: 900px;
 }
 
 .view_index_year {
-  grid-column: 10 / 11;
+  grid-column: 9 / 10;
+}
+
+.view_index_seen {
+  grid-column: 11 / 12;
+}
+
+.icon_eye_index {
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #ffffff;
+  background-image: url(../../assets/icons/eye-solid.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
 }
 
 #view_linear {

@@ -34,7 +34,13 @@
                 <div class="view_index_title">{{ project.title | titlecase }}</div>
                 <div class="view_index_format">{{ (project.video ? 'video' : 'image') | titlecase }}</div>
 
-                <div class="view_index_year">{{ project.year }}</div>
+                <div class="view_index_year">{{ project.year }}
+                </div>
+                <ng-container *ngFor="let see of seen">
+                    <div *ngIf="see === project.title" class="view_index_seen">
+                        <span class="icon_eye_index"></span>
+                    </div>
+                </ng-container>
         </div>
 </ng-container>
 
@@ -50,7 +56,10 @@
                     [alt]="project.project_dir">
                 <div class="overlay"
                     [ngStyle]="{'background-color': project.background ? project.background : '#ff0000' }">
-                    <span *ngIf="project.video" class="project_format icon_video"></span>
+                    <span *ngIf="project.video" class="project_format icon icon_video"></span>
+                    <ng-container *ngFor="let see of seen">
+                        <span *ngIf="see === project.title" class="project_format icon icon_eye"></span>
+                    </ng-container>
                 </div>
             </div>
         </div>
