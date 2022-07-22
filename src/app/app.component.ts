@@ -50,7 +50,6 @@ export class AppComponent {
 
       this._router.events.subscribe((event: Event) => {
         if (event instanceof NavigationStart) {
-          // console.log('nav start');
         }
 
         if (event instanceof NavigationEnd) {

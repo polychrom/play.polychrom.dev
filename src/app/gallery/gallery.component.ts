@@ -1,13 +1,19 @@
 import {
   ChangeDetectorRef,
   Component,
+  ElementRef,
   OnInit,
   ViewChildren,
 } from '@angular/core';
 import { ApiService } from '../api.service';
 import { SharedService } from '../shared.service';
 import { View } from '../enum';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  NavigationStart,
+  Router,
+} from '@angular/router';
 import { BehaviorSubject, fromEvent } from 'rxjs';
 import { HelperService } from '../helper.service';
 
@@ -27,6 +33,8 @@ export class GalleryComponent implements OnInit {
   public _routeMatch = false;
   public seen: any;
   public viewedFromStorage: any;
+  public background: any;
+  public readonly defaultBackgroundColor: string = '#FFFFFF';
 
   viewportScroller: any;
   private column = {
@@ -45,7 +53,8 @@ export class GalleryComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private _helperService: HelperService,
     private _router: Router,
-    public cdr: ChangeDetectorRef
+    public cdr: ChangeDetectorRef,
+    private elementRef: ElementRef
   ) {
     // restore gallery view when reloading app
     const viewModeFromQuery = this.activatedRoute.snapshot.queryParams['view'];
@@ -55,6 +64,13 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // reset background to default when leaving route
+    this._router.events.subscribe((event: any) => {
+      if (event instanceof NavigationStart) {
+        this.setAppBackground(this.defaultBackgroundColor);
+      }
+    });
+
     if (localStorage.getItem('viewed')) {
       this.seen = JSON.parse(localStorage.getItem('viewed') || 'nix');
     }
@@ -150,5 +166,22 @@ export class GalleryComponent implements OnInit {
       return this.column.start + '/ span ' + width;
     }
     return spanDefault;
+  }
+
+  setAppBackground(hex: string) {
+    hex = hex ? hex : this.defaultBackgroundColor;
+    hex = hex.replace('#', '');
+    var bigint = parseInt(hex, 16);
+    var r = (bigint >> 16) & 255;
+    var g = (bigint >> 8) & 255;
+    var b = bigint & 255;
+
+    let color = r + ',' + g + ',' + b;
+    console.log('trigger', color);
+
+    // this.elementRef.nativeElement.ownerDocument.body.style.background = `radial-gradient(circle, rgba(${color},.5) 0%, rgba(255,255,255,1) 100%`;
+
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = `rgba(${color},1)`;
+    color;
   }
 }
