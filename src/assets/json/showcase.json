@@ -1,6 +1,39 @@
 {
   "project": [
     {
+      "title": "ply",
+      "year": 2021,
+      "project_dir": "ply",
+      "tools": ["photoshop", "cinema4d"],
+      "images": ["ply.jpg"],
+      "background": "#333333",
+      "video": true,
+      "width": "8",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    },
+    {
+      "title": "space",
+      "year": 2021,
+      "project_dir": "space",
+      "tools": ["photoshop", "cinema4d"],
+      "images": ["space.jpg"],
+      "background": "#76054c",
+      "video": true,
+      "width": "8",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    },
+    {
+      "title": "transform",
+      "year": 2021,
+      "project_dir": "transform",
+      "tools": ["photoshop", "cinema4d"],
+      "images": ["transform.jpg"],
+      "background": "#333333",
+      "video": true,
+      "width": "8",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    },
+    {
       "title": "iridescent",
       "year": 2021,
       "project_dir": "iridescent",

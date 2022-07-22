@@ -16,6 +16,7 @@ import {
 } from '@angular/router';
 import { BehaviorSubject, fromEvent } from 'rxjs';
 import { HelperService } from '../helper.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-gallery',
@@ -35,8 +36,14 @@ export class GalleryComponent implements OnInit {
   public viewedFromStorage: any;
   public background: any;
   public readonly defaultBackgroundColor: string = '#FFFFFF';
+  public activeProject = -1;
+  private pos: any;
 
-  viewportScroller: any;
+  private key = {
+    up: 38,
+    down: 40,
+  };
+
   private column = {
     start: '3',
     width: '8',
@@ -54,7 +61,8 @@ export class GalleryComponent implements OnInit {
     private _helperService: HelperService,
     private _router: Router,
     public cdr: ChangeDetectorRef,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private viewportScroller: ViewportScroller
   ) {
     // restore gallery view when reloading app
     const viewModeFromQuery = this.activatedRoute.snapshot.queryParams['view'];
@@ -64,6 +72,32 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    /*
+    const keyDown$ = fromEvent(window, 'keydown');
+    keyDown$.subscribe((event: any) => {
+      // 40 arrow down
+      if (event.keyCode == this.key.down) {
+        this.pos = this.viewportScroller.getScrollPosition();
+        console.log('key down', this.pos);
+        //this.viewportScroller.scrollToPosition([0, 0]);
+        // this.scrollByRow(this.scrollState, event);
+        this.activeProject += 1;
+        this.viewportScroller.scrollToPosition([0, (this.pos[1] += 100)]);
+
+        event.preventDefault();
+      }
+
+      // 38 scroll up
+      if (event.keyCode == this.key.up) {
+        console.log('key up');
+        //this.scrollByRow(this.scrollState, event);
+
+        this.activeProject -= 1;
+
+        event.preventDefault();
+      }
+    });*/
+
     // reset background to default when leaving route
     this._router.events.subscribe((event: any) => {
       if (event instanceof NavigationStart) {
@@ -169,17 +203,15 @@ export class GalleryComponent implements OnInit {
   }
 
   setAppBackground(hex: string) {
+    // prevent undefined
     hex = hex ? hex : this.defaultBackgroundColor;
     hex = hex.replace('#', '');
-    var bigint = parseInt(hex, 16);
-    var r = (bigint >> 16) & 255;
-    var g = (bigint >> 8) & 255;
-    var b = bigint & 255;
+    let bigint = parseInt(hex, 16);
+    let r = (bigint >> 16) & 255;
+    let g = (bigint >> 8) & 255;
+    let b = bigint & 255;
 
     let color = r + ',' + g + ',' + b;
-    console.log('trigger', color);
-
-    // this.elementRef.nativeElement.ownerDocument.body.style.background = `radial-gradient(circle, rgba(${color},.5) 0%, rgba(255,255,255,1) 100%`;
 
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = `rgba(${color},1)`;
     color;
