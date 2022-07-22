@@ -100,6 +100,17 @@ $medium: 900px;
   grid-column: 3 / 5;
 }
 
+.view_index_image {
+  grid-column: 5 / 6;
+}
+
+.view_index_image_circle {
+  border-radius: 18px;
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+}
+
 .view_index_format {
   grid-column: 6 / 7;
 }
