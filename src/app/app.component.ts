@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-
-import {
-  Router,
-  Event,
-  NavigationStart,
-  NavigationEnd,
-  NavigationError,
-  ActivatedRoute,
-} from '@angular/router';
+import { Router, Event, NavigationEnd, NavigationError } from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { HelperService } from './helper.service';
 
@@ -24,15 +16,10 @@ export class AppComponent {
   public routeChanged = false;
   public is404: boolean = false;
 
-  constructor(
-    private _router: Router,
-    private _activatedRoute: ActivatedRoute,
-    private _helperService: HelperService
-  ) {
-    if (this._helperService.isBrowser()) {
+  constructor(private router: Router, private helperService: HelperService) {
+    if (this.helperService.isBrowser()) {
       const scrollPosition$ = fromEvent(window, 'scroll');
       scrollPosition$.subscribe(() => {
-        //console.log('y', window.scrollY);
         if (window.scrollY > window.innerHeight / 2) {
           this.isScrollTopActive = true;
         } else {
@@ -45,16 +32,12 @@ export class AppComponent {
         // console.log('click', val);
       });
 
-      const resize$ = fromEvent(window, 'resize');
-      resize$.subscribe((val) => console.log(window.innerWidth));
+      // const resize$ = fromEvent(window, 'resize');
+      // resize$.subscribe((val) => console.log(window.innerWidth));
 
-      this._router.events.subscribe((event: Event) => {
-        if (event instanceof NavigationStart) {
-        }
-
+      this.router.events.subscribe((event: Event) => {
         if (event instanceof NavigationEnd) {
-          console.log('navigation finished');
-          const currentUrl = this._router.routerState.snapshot.url;
+          const currentUrl = this.router.routerState.snapshot.url;
           if (currentUrl.indexOf('404') > -1) {
             this.is404 = true;
           } else {

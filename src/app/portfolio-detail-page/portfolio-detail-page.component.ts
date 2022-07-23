@@ -1,8 +1,9 @@
 import { identifierName } from '@angular/compiler';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
 import { ApiService } from '../api.service';
+import { HelperService } from '../helper.service';
 
 @Component({
   selector: 'app-portfolio-detail-page',
@@ -14,33 +15,95 @@ export class PortfolioDetailPageComponent implements OnInit, OnDestroy {
   public project: any;
   private _match: boolean = false;
   private _id: string = '';
+  public posX: any;
+  public posY: any;
+  public prev: boolean = false;
+  public next: boolean = false;
+  public projectsSum: number = 0;
+  public currentProjectNumber: number = 0;
+  private offsetX = 0;
 
-  private _subscription!: Subscription;
+  public nextProject = undefined;
+  public prevProject = undefined;
+
+  private _subscriptionData!: Subscription;
+  private _subscriptionRoute!: Subscription;
+  private _subscriptionMouseMove!: Subscription;
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
-    private _apiService: ApiService,
-    private _router: Router
+    private activatedRoute: ActivatedRoute,
+    private apiService: ApiService,
+    private router: Router,
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
-    this._subscription = this._apiService.$data.subscribe((res: any) => {
-      this.projects = res.project;
-      this._match = false;
-      this.projects.forEach((item: any) => {
-        this._id = this._activatedRoute.snapshot.params['id'];
-        if (item.project_dir === this._id) {
-          this.project = item;
-          this._match = true;
+    this._subscriptionRoute = this.activatedRoute.params.subscribe(() => {
+      this._subscriptionData = this.apiService.$data.subscribe((res: any) => {
+        this.projects = res.project;
+        this.projectsSum = this.projects.length;
+        this._match = false;
+
+        for (let i = 0; i < this.projects.length; i++) {
+          this._id = this.activatedRoute.snapshot.params['id'];
+          if (this.projects[i].project_dir === this._id) {
+            this.project = this.projects[i];
+
+            if (i < this.projects.length) {
+              this.nextProject = this.projects[i + 1].title;
+            } else {
+              this.nextProject = undefined;
+            }
+
+            if (i > 0) {
+              this.prevProject = this.projects[i - 1].title;
+            } else {
+              this.prevProject = undefined;
+            }
+            this._match = true;
+          }
+        }
+        if (!this._match && this._id.indexOf('404') === -1) {
+          this.router.navigate(['404']);
         }
       });
-      if (!this._match && this._id.indexOf('404') === -1) {
-        this._router.navigate(['404']);
-      }
     });
+
+    if (this.helperService.isBrowser()) {
+      const mouseMove$ = fromEvent(window, 'mousemove');
+      this._subscriptionMouseMove = mouseMove$.subscribe((event: any) => {
+        const offsetY = 30;
+        this.posX = event.pageX + this.offsetX + 'px';
+        this.posY = event.pageY + offsetY + 'px';
+
+        if (event.target.role === 'prev_project') {
+          this.prev = true;
+          this.offsetX = 30;
+        } else {
+          this.prev = false;
+        }
+
+        if (event.target.role === 'next_project') {
+          this.next = true;
+          this.offsetX = -180;
+        } else {
+          this.next = false;
+        }
+      });
+    }
   }
 
   ngOnDestroy() {
-    this._subscription.unsubscribe();
+    this._subscriptionRoute.unsubscribe();
+    this._subscriptionData.unsubscribe();
+    this._subscriptionMouseMove.unsubscribe();
+
+    //console.log('unsub from route', this._subscriptionRoute.closed);
+    //console.log('unsub from data', this._subscriptionData.closed);
+    //console.log('unsub from mouse', this._subscriptionMouseMove.closed);
+  }
+
+  navigateProjects(route: any) {
+    this.router.navigate([route]);
   }
 }
