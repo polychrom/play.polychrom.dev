@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 import { HelperService } from '../helper.service';
 
 @Component({
@@ -7,11 +8,15 @@ import { HelperService } from '../helper.service';
   styleUrls: ['./page-not-found.component.scss'],
 })
 export class PageNotFoundComponent implements OnInit {
-  constructor(private _helperService: HelperService) {}
+  projects: any;
+  constructor(private apiService: ApiService) {}
 
   public size = '';
 
   ngOnInit(): void {
-    // this.size = this._helperService.getWindowSize();
+    this.apiService.$data.subscribe((res: any) => {
+      this.projects = res.project;
+      console.log('projects', this.projects);
+    });
   }
 }

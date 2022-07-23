@@ -123,8 +123,6 @@ export class GalleryComponent implements OnInit {
           let currentProject = this._router.routerState.snapshot.url;
           currentProject = currentProject.replace('/', '');
 
-          //let viewed: any;
-
           // check if route is candidate for project match
           this._routeMatch = false;
           this.projects.forEach((project: any) => {
