@@ -11,12 +11,9 @@ export class PageNotFoundComponent implements OnInit {
   projects: any;
   constructor(private apiService: ApiService) {}
 
-  public size = '';
-
   ngOnInit(): void {
     this.apiService.$data.subscribe((res: any) => {
       this.projects = res.project;
-      console.log('projects', this.projects);
     });
   }
 }
