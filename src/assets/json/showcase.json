@@ -152,7 +152,7 @@
       "project_dir": "flow",
       "tools": ["photoshop", "cinema4d"],
       "images": ["flow.jpg"],
-      "background": "#000000",
+      "background": "#0e6050",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
     {
@@ -186,10 +186,9 @@
       "title": "simulation",
       "year": 2019,
       "project_dir": "simulation",
-
       "tools": ["photoshop", "cinema4d"],
       "images": ["simulation.gif"],
-      "background": "#000000",
+      "background": "#243125",
       "video": true,
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     },
@@ -264,7 +263,7 @@
       "project_dir": "rorschach",
       "tools": ["photoshop", "cinema4d"],
       "images": ["1.png"],
-      "background": "#000000",
+      "background": "#333333",
       "video": true,
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
     }

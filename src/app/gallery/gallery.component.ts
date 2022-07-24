@@ -202,7 +202,7 @@ export class GalleryComponent implements OnInit {
 
   setAppBackground(hex: string) {
     // prevent undefined
-    hex = hex ? hex : this.defaultBackgroundColor;
+    hex = hex && hex.length === 7 ? hex : this.defaultBackgroundColor;
     hex = hex.replace('#', '');
     let bigint = parseInt(hex, 16);
     let r = (bigint >> 16) & 255;
