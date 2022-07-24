@@ -42,7 +42,8 @@
                 <div class="view_index_title">{{ project.title | titlecase }}</div>
                 <div class="view_index_image">
                     <img class="view_index_image_circle"
-                        [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]">
+                        [src]="'assets/projects/' + project.project_dir + '/' + project.images[0]"
+                        [alt]="project.project_dir">
                 </div>
                 <div class="view_index_format">{{ (project.video ? 'video' : 'image') | titlecase }}</div>
                 <div class="view_index_year">{{ project.year }}
