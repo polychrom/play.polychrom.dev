@@ -1,6 +1,6 @@
 <div>
     <div *ngIf="project" class="intro">
-        <div class="title">{{ project.title }}</div>
+        <div class="title">{{ project.title | titlecase }}</div>
         <div class="year">{{ project.year }}</div>
         <div class="text">{{ project.text }}</div>
     </div>

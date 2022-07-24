@@ -51,10 +51,6 @@ export class PortfolioDetailPageComponent implements OnInit, OnDestroy {
           if (this.projects[i].project_dir === this._id) {
             this.project = this.projects[i];
 
-            console.log('length', this.projects.length);
-
-            console.log('i', i);
-
             /* prev project */
             if (i === 0) {
               this.prevProject = this.projects[this.projects.length - 1].title;
