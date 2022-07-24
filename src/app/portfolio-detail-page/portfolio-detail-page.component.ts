@@ -105,7 +105,10 @@ export class PortfolioDetailPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this._subscriptionRoute.unsubscribe();
     this._subscriptionData.unsubscribe();
-    this._subscriptionMouseMove.unsubscribe();
+
+    if (this.helperService.isBrowser()) {
+      this._subscriptionMouseMove.unsubscribe();
+    }
 
     //console.log('unsub from route', this._subscriptionRoute.closed);
     //console.log('unsub from data', this._subscriptionData.closed);

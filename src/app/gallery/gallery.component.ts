@@ -105,10 +105,6 @@ export class GalleryComponent implements OnInit {
       }
     });
 
-    if (localStorage.getItem('viewed')) {
-      this.seen = JSON.parse(localStorage.getItem('viewed') || 'nix');
-    }
-
     this.apiService.$data.subscribe((res: any) => {
       this.projects = res.project;
     });
@@ -118,6 +114,9 @@ export class GalleryComponent implements OnInit {
     });
 
     if (this._helperService.isBrowser()) {
+      if (localStorage.getItem('viewed')) {
+        this.seen = JSON.parse(localStorage.getItem('viewed') || 'nix');
+      }
       this._router.events.subscribe((event: any) => {
         if (event instanceof NavigationEnd) {
           let currentProject = this._router.routerState.snapshot.url;
