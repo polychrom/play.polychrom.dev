@@ -25,6 +25,8 @@ export class PortfolioDetailPageComponent implements OnInit, OnDestroy {
 
   public nextProject = undefined;
   public prevProject = undefined;
+  public nextProjectNumber: number = 0;
+  public prevProjectNumber: number = 0;
 
   private _subscriptionData!: Subscription;
   private _subscriptionRoute!: Subscription;
@@ -49,17 +51,28 @@ export class PortfolioDetailPageComponent implements OnInit, OnDestroy {
           if (this.projects[i].project_dir === this._id) {
             this.project = this.projects[i];
 
-            if (i < this.projects.length) {
-              this.nextProject = this.projects[i + 1].title;
-            } else {
-              this.nextProject = undefined;
+            console.log('length', this.projects.length);
+
+            console.log('i', i);
+
+            /* prev project */
+            if (i === 0) {
+              this.prevProject = this.projects[this.projects.length - 1].title;
             }
 
             if (i > 0) {
               this.prevProject = this.projects[i - 1].title;
-            } else {
-              this.prevProject = undefined;
             }
+
+            /* next project */
+            if (i === this.projects.length - 1) {
+              this.nextProject = this.projects[0].title;
+            }
+
+            if (i < this.projects.length - 1) {
+              this.nextProject = this.projects[i + 1].title;
+            }
+
             this._match = true;
           }
         }
