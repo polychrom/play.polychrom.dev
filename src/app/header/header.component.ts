@@ -3,6 +3,8 @@ import { SharedService } from '../shared.service';
 import { View } from '../enum';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { HelperService } from '../helper.service';
+import { fromEvent, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -15,24 +17,47 @@ export class HeaderComponent implements OnInit {
   public projects: any;
   public modalState: boolean = false;
 
+  private _subscriptionMouseMove!: Subscription;
+  posX: any;
+  posY: any;
+  offSetX = 0;
+  active = false;
+
   constructor(
     public apiService: ApiService,
     public sharedService: SharedService,
-    private router: Router
+    private router: Router,
+    private helperService: HelperService
   ) {}
 
   ngOnInit(): void {
     this.apiService.$data.subscribe((res: any) => {
       this.projects = res.project;
     });
+
+    if (this.helperService.isBrowser()) {
+      const mouseMove$ = fromEvent(window, 'mousemove');
+      this._subscriptionMouseMove = mouseMove$.subscribe((event: any) => {
+        console.log('mouse sub active');
+        const offsetY = 30;
+        this.posX = event.pageX - 30 + 'px';
+        this.posY = event.pageY - 30 + 'px';
+
+        if (event.target.role === 'hoverState') {
+          this.active = true;
+        } else {
+          this.active = false;
+        }
+      });
+    }
   }
 
-  openModal(): void {
-    this.modalState = true;
-  }
+  ngOnDestroy(): void {
+    if (this.helperService.isBrowser()) {
+      this._subscriptionMouseMove.unsubscribe();
+    }
 
-  closeModal(): void {
-    this.modalState = false;
+    //console.log('unsub from mouse', this._subscriptionMouseMove.closed);
   }
 
   navigate(view: View) {

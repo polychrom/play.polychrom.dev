@@ -1,7 +1,18 @@
+.circle {
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff;
+  position: absolute;
+  z-index: 5555;
+  border-radius: 30px;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
-  // border: #ff0000 1px solid;
+  //border: #ff0000 1px solid;
   padding-bottom: 20px;
 }
 
@@ -59,12 +70,16 @@
   & a {
     border-bottom: 1px solid #000000;
   }
+  & a:hover {
+    border-bottom: 1px transparent;
+  }
 }
 
 .header_item_view {
   right: 20px;
   position: fixed;
   grid-column: 11 / 13;
+  z-index: 555;
 
   & span {
     margin-right: 50px;
@@ -77,6 +92,9 @@
 
   &:nth-child(-n + 2) {
     margin-right: 20px;
+  }
+  &:hover {
+    border: none;
   }
 }
 
@@ -97,4 +115,5 @@
 .icon_github {
   right: 0px;
   position: absolute;
+  display: inline-block;
 }
