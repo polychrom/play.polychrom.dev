@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { View } from '../enum';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-header',
@@ -11,17 +12,28 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   readonly View = View;
 
-  /*
-  public galleryMode = View.Index;
+  public projects: any;
+  public modalState: boolean = false;
 
-  public BASE_URL = '';
+  constructor(
+    public apiService: ApiService,
+    public sharedService: SharedService,
+    private router: Router
+  ) {}
 
-  public currentMode: any;
-  */
+  ngOnInit(): void {
+    this.apiService.$data.subscribe((res: any) => {
+      this.projects = res.project;
+    });
+  }
 
-  constructor(public sharedService: SharedService, private router: Router) {}
+  openModal(): void {
+    this.modalState = true;
+  }
 
-  ngOnInit(): void {}
+  closeModal(): void {
+    this.modalState = false;
+  }
 
   navigate(view: View) {
     this.router.navigate(['']);

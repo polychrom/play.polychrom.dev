@@ -4,8 +4,20 @@
     <div class="header_item_info">Design & Technology</div>
     <div class="header_item_view">
         <span class="navigation">
+
+            <div class="dropdown">
+                <span class="nav_item">&#x2193;</span>
+                <div class="dropdown-content">
+                    <ng-container *ngIf="projects">
+                        <a *ngFor="let project of projects; let i = index" [routerLink]="project.project_dir">
+                            {{ project.title | titlecase }}</a>
+                    </ng-container>
+                </div>
+            </div>
+
             <a class="nav_item" [routerLink]="['']" [queryParams]="{view: View.Index }"
                 (click)="this.viewMode(View.Index)">{{ View.Index | titlecase }}</a>
+
             <a class="nav_item" [routerLink]="['']" [queryParams]="{view: View.Grid }"
                 (click)="this.viewMode(View.Grid)">{{ View.Grid | titlecase }}</a>
         </span>
