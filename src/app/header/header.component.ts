@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
     if (this.helperService.isBrowser()) {
       const mouseMove$ = fromEvent(window, 'mousemove');
       this._subscriptionMouseMove = mouseMove$.subscribe((event: any) => {
-        console.log('mouse sub active');
+        //console.log('mouse sub active');
         const offsetY = 30;
         this.posX = event.pageX - 30 + 'px';
         this.posY = event.pageY - 30 + 'px';
