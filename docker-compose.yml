@@ -16,7 +16,7 @@ services:
       - "traefik.http.routers.xyz_spaceframe_io.entrypoints=websecure"
       - "traefik.http.routers.xyz_spaceframe_io.rule=Host(`xyz.spaceframe.io`)"
       - "traefik.http.routers.xyz_spaceframe_io.tls.certresolver=myresolver"
-      - "traefik.port=8015"
+      - "traefik.port=8020"
 
       # Enable gzip compression
       - "traefik.http.routers.xyz_spaceframe_io.middlewares=test-compress"
