@@ -2,23 +2,24 @@ version: "3"
 
 services:
   xyz_spaceframe_io:
+    image: nginx:stable-alpine
     build: .
     container_name: xyz_spaceframe_io
     ports:
-      - 4000:4000
+      - 8020
     volumes:
-      # /dist/server/
-      # /dist/browser/
-      - ./dist/xyz.spaceframe.io:/dist/xyz.spaceframe.io
+      # - ./src:/usr/share/nginx/html
+      - ./dist/xyz.spaceframe.io:/usr/share/nginx/html
+
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.play_polychrom_dev.entrypoints=websecure"
-      - "traefik.http.routers.play_polychrom_dev.rule=Host(`xyz.spaceframe.io`)"
-      - "traefik.http.routers.play_polychrom_dev.tls.certresolver=myresolver"
+      - "traefik.http.routers.xyz_spaceframe_io.entrypoints=websecure"
+      - "traefik.http.routers.xyz_spaceframe_io.rule=Host(`xyz.spaceframe.io`)"
+      - "traefik.http.routers.xyz_spaceframe_io.tls.certresolver=myresolver"
       - "traefik.port=8015"
 
       # Enable gzip compression
-      - "traefik.http.routers.play_polychrom_dev.middlewares=test-compress"
+      - "traefik.http.routers.xyz_spaceframe_io.middlewares=test-compress"
       - "traefik.http.middlewares.test-compress.compress=true"
 
     networks:

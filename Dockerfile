@@ -1,15 +1,12 @@
-FROM node:16.3.0-alpine
+FROM alpine:latest
 
-# install nodemon to auto restart node server 
-RUN npm install -g nodemon@2.0.7
 
-ENV NODE_OPTIONS=--max-old-space-size=4096
-# Create app directory
+RUN npm install -g
+
+# create destination directory
 WORKDIR /
 
 # Bundle app source
 COPY . .
 
 EXPOSE 4000
-# only watch /browser folder for changes to avoid memory leak 
-CMD [ "nodemon", "-L", "--delay", "15", "/dist/xyz.spaceframe.io/server/main.js", "--watch", "/dist/xyz.spaceframe.io/browser/"]
