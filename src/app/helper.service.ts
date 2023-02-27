@@ -1,16 +1,11 @@
-import { isPlatformServer, isPlatformBrowser } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HelperService {
-  platformId: Object;
-
-  constructor(@Inject(PLATFORM_ID) platformId: Object, private router: Router) {
-    this.platformId = platformId;
-  }
+  constructor(private router: Router) {}
 
   getWindowSize(): string {
     return 'hello from getWindowSize';
@@ -20,13 +15,5 @@ export class HelperService {
     this.router
       .navigateByUrl('/', { skipLocationChange: true })
       .then(() => this.router.navigate([url]));
-  }
-
-  isBrowser(): boolean {
-    return isPlatformBrowser(this.platformId);
-  }
-
-  isServer(): boolean {
-    return isPlatformServer(this.platformId);
   }
 }
