@@ -1,5 +1,4 @@
-import { identifierName } from '@angular/compiler';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fromEvent, Subscription } from 'rxjs';
 import { ApiService } from '../api.service';
@@ -78,41 +77,31 @@ export class PortfolioDetailPageComponent implements OnInit, OnDestroy {
       });
     });
 
-    if (this.helperService.isBrowser()) {
-      const mouseMove$ = fromEvent(window, 'mousemove');
-      this._subscriptionMouseMove = mouseMove$.subscribe((event: any) => {
-        const offsetY = 30;
-        this.posX = event.pageX + this.offsetX + 'px';
-        this.posY = event.pageY + offsetY + 'px';
+    const mouseMove$ = fromEvent(window, 'mousemove');
+    this._subscriptionMouseMove = mouseMove$.subscribe((event: any) => {
+      const offsetY = 30;
+      this.posX = event.pageX + this.offsetX + 'px';
+      this.posY = event.pageY + offsetY + 'px';
 
-        if (event.target.role === 'prev_project') {
-          this.prev = true;
-          this.offsetX = 30;
-        } else {
-          this.prev = false;
-        }
+      if (event.target.role === 'prev_project') {
+        this.prev = true;
+        this.offsetX = 30;
+      } else {
+        this.prev = false;
+      }
 
-        if (event.target.role === 'next_project') {
-          this.next = true;
-          this.offsetX = -180;
-        } else {
-          this.next = false;
-        }
-      });
-    }
+      if (event.target.role === 'next_project') {
+        this.next = true;
+        this.offsetX = -180;
+      } else {
+        this.next = false;
+      }
+    });
   }
 
   ngOnDestroy() {
     this._subscriptionRoute.unsubscribe();
     this._subscriptionData.unsubscribe();
-
-    if (this.helperService.isBrowser()) {
-      this._subscriptionMouseMove.unsubscribe();
-    }
-
-    //console.log('unsub from route', this._subscriptionRoute.closed);
-    //console.log('unsub from data', this._subscriptionData.closed);
-    //console.log('unsub from mouse', this._subscriptionMouseMove.closed);
   }
 
   navigateProjects(route: any) {

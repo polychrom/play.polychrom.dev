@@ -113,70 +113,66 @@ export class GalleryComponent implements OnInit {
       this.galleryMode = currentMode;
     });
 
-    if (this._helperService.isBrowser()) {
-      if (localStorage.getItem('viewed')) {
-        this.seen = JSON.parse(localStorage.getItem('viewed') || 'nix');
-      }
-      this._router.events.subscribe((event: any) => {
-        if (event instanceof NavigationEnd) {
-          let currentProject = this._router.routerState.snapshot.url;
-          currentProject = currentProject.replace('/', '');
+    if (localStorage.getItem('viewed')) {
+      this.seen = JSON.parse(localStorage.getItem('viewed') || 'nix');
+    }
+    this._router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        let currentProject = this._router.routerState.snapshot.url;
+        currentProject = currentProject.replace('/', '');
 
-          // check if route is candidate for project match
-          this._routeMatch = false;
-          this.projects.forEach((project: any) => {
-            if (currentProject.indexOf(project.title) > -1) {
-              this._routeMatch = true;
-            }
-          });
-          // check if storage exists and project is already stored
-          if (this._routeMatch) {
-            if (localStorage.getItem('viewed')) {
-              this.viewedFromStorage = JSON.parse(
-                localStorage.getItem('viewed') || ''
-              );
-            }
+        // check if route is candidate for project match
+        this._routeMatch = false;
+        this.projects.forEach((project: any) => {
+          if (currentProject.indexOf(project.title) > -1) {
+            this._routeMatch = true;
+          }
+        });
+        // check if storage exists and project is already stored
+        if (this._routeMatch) {
+          if (localStorage.getItem('viewed')) {
+            this.viewedFromStorage = JSON.parse(
+              localStorage.getItem('viewed') || ''
+            );
+          }
 
-            // push item when storage does not exist or item not already saved
-            if (
-              !this.viewedFromStorage ||
-              (this.viewedFromStorage &&
-                !this.isInStorage(this.viewedFromStorage, currentProject))
-            ) {
-              this.viewed.push(currentProject);
-              localStorage.setItem('viewed', JSON.stringify(this.viewed));
-            }
+          // push item when storage does not exist or item not already saved
+          if (
+            !this.viewedFromStorage ||
+            (this.viewedFromStorage &&
+              !this.isInStorage(this.viewedFromStorage, currentProject))
+          ) {
+            this.viewed.push(currentProject);
+            localStorage.setItem('viewed', JSON.stringify(this.viewed));
           }
         }
-      });
-    }
+      }
+    });
 
-    if (this._helperService.isBrowser()) {
-      const mouseMove$ = fromEvent(window, 'mousemove');
-      mouseMove$.subscribe((e: any) => {
-        const offset = 30;
-        this.posX = e.pageX + offset + 'px';
-        this.posY = e.pageY + offset + 'px';
-      });
+    const mouseMove$ = fromEvent(window, 'mousemove');
+    mouseMove$.subscribe((e: any) => {
+      const offset = 30;
+      this.posX = e.pageX + offset + 'px';
+      this.posY = e.pageY + offset + 'px';
+    });
 
-      const click$ = fromEvent(window, 'mouseover');
-      click$.subscribe((event: any) => {
-        const _activeId = event.target.id;
+    const click$ = fromEvent(window, 'mouseover');
+    click$.subscribe((event: any) => {
+      const _activeId = event.target.id;
 
-        if (this.projects && _activeId) {
-          this.projects.filter((project: any) => {
-            if (project.title === _activeId) {
-              this._lastId = _activeId;
-              this.textOverlay = project.title;
-            }
-            // stop overlay when leaving image
-            if (this._lastId !== _activeId) {
-              this.textOverlay = '';
-            }
-          });
-        }
-      });
-    }
+      if (this.projects && _activeId) {
+        this.projects.filter((project: any) => {
+          if (project.title === _activeId) {
+            this._lastId = _activeId;
+            this.textOverlay = project.title;
+          }
+          // stop overlay when leaving image
+          if (this._lastId !== _activeId) {
+            this.textOverlay = '';
+          }
+        });
+      }
+    });
   }
 
   isInStorage(viewed: any, current: string): boolean {

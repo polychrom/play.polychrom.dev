@@ -3,8 +3,7 @@ import { SharedService } from '../shared.service';
 import { View } from '../enum';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { HelperService } from '../helper.service';
-import { fromEvent, Subscription } from 'rxjs';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +16,6 @@ export class HeaderComponent implements OnInit {
   public projects: any;
   public modalState: boolean = false;
 
-  private _subscriptionMouseMove!: Subscription;
   posX: any;
   posY: any;
   offSetX = 0;
@@ -26,8 +24,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     public apiService: ApiService,
     public sharedService: SharedService,
-    private router: Router,
-    private helperService: HelperService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,29 +32,19 @@ export class HeaderComponent implements OnInit {
       this.projects = res.project;
     });
 
-    if (this.helperService.isBrowser()) {
-      const mouseMove$ = fromEvent(window, 'mousemove');
-      this._subscriptionMouseMove = mouseMove$.subscribe((event: any) => {
-        //console.log('mouse sub active');
-        const offsetY = 30;
-        this.posX = event.pageX - 30 + 'px';
-        this.posY = event.pageY - 30 + 'px';
+    const mouseMove$ = fromEvent(window, 'mousemove');
+    mouseMove$.subscribe((event: any) => {
+      //console.log('mouse sub active');
+      const offsetY = 30;
+      this.posX = event.pageX - 30 + 'px';
+      this.posY = event.pageY - 30 + 'px';
 
-        if (event.target.role === 'hoverState') {
-          this.active = true;
-        } else {
-          this.active = false;
-        }
-      });
-    }
-  }
-
-  ngOnDestroy(): void {
-    if (this.helperService.isBrowser()) {
-      this._subscriptionMouseMove.unsubscribe();
-    }
-
-    //console.log('unsub from mouse', this._subscriptionMouseMove.closed);
+      if (event.target.role === 'hoverState') {
+        this.active = true;
+      } else {
+        this.active = false;
+      }
+    });
   }
 
   navigate(view: View) {
@@ -68,24 +55,4 @@ export class HeaderComponent implements OnInit {
   viewMode(view: View): void {
     this.sharedService.$galleryMode.next(view);
   }
-
-  /*
-  nextViewMode(): void {
-    this.sharedService.$galleryMode.pipe(take(1)).subscribe((mode) => {
-      this.currentMode = mode;
-    });
-
-    if (this.currentMode === View.Default) {
-      this.sharedService.$galleryMode.next(View.Index);
-      this.galleryMode = View.Grid;
-    }
-    if (this.currentMode === View.Index) {
-      this.sharedService.$galleryMode.next(View.Grid);
-      this.galleryMode = View.Default;
-    }
-    if (this.currentMode === View.Grid) {
-      this.sharedService.$galleryMode.next(View.Default);
-      this.galleryMode = View.Index;
-    }
-  }*/
 }
