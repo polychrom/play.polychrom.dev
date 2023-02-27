@@ -6,11 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "dev:ssr": "ng run xyz.spaceframe.io:serve-ssr",
-    "serve:ssr": "node dist/xyz.spaceframe.io/server/main.js",
-    "build:ssr": "ng build && ng run xyz.spaceframe.io:server",
-    "prerender": "ng run xyz.spaceframe.io:prerender"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
